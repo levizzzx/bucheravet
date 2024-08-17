@@ -9,10 +9,41 @@
     <body>
         <header>
             <a href="index.html">Voltar</a>
-            <img src="/imagens/logotipo.png" alt="logotipo">
+            <img src="/imagens/logotipo.png" id="logo" alt="logotipo">
         </header>
-        <div>
-            
+        <div id="login">
+            <h1>Olá, Dono de pets</h1>
+            <p>Para acessar o site online da Buchera Vet e os Planos de Saúde, entre com sua conta
+                
+            </p>
+            <img src="/imagens/2.png" alt="apple">
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+var form = document.getElementById('entrar');
+
+            form.addEventListener('submit', function(event) {
+                var email = form.querySelector('input[type="text"]').value;
+                if (email.indexOf('@') === -1) {
+                    event.preventDefault();
+                    alert('Por favor, insira um e-mail válido');
+                }
+});
+});
+
+</script>
+
+
+            <p>Ou entre com seu E-mail e Senha:</p>
+            <form id="entrar" action="index.html">
+                <input type="text" placeholder="E-mail">
+                <input type="password" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+                
+            </form>
         </div>
     </body>
 </html>
