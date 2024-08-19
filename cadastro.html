@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro | Buchera Vet</title>
-    <link rel="stylesheet" href="/cadastro.css">
-    <link rel="icon" type="image/png" href="/imagens/icon.png">
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="icon" type="image/png" href="imagens/icon.png">
 </head>
 <body>
     <header>
-        <img src="/imagens/logotipo.png" alt="">
+        <img src="imagens/logotipo.png" alt="">
     </header>
     <main>
-        <img src="/imagens/cadastro.png" alt="cadastro">
+        <img src="imagens/cadastro.png" alt="cadastro">
         <div id="cadastrar">
             <p id="tit">Preencha todas as informações abaixo para concluir o seu cadastro</p>
             <form method="post" id="cadastro" action="index.html" name="cad">
@@ -182,7 +182,7 @@
         </div>
     </main>
     <footer>
-        <img src="/imagens/logotipo.png" alt="logotipo">
+        <img src="imagens/logotipo.png" alt="logotipo">
         <span>&copy; Todos os direitos reservados</span>
     </footer>
 </body>
@@ -200,17 +200,9 @@
                         alert('Por favor, insira um e-mail válido');
                     }
                     var dia = form.querySelector('select[id="dia"]').value;
-                    if (dia < 1) {
-                        event.preventDefault();
-                        alert('Por favor, insira uma data válida');
-                    }
                     var mes = form.querySelector('select[id="mes"]').value;
-                    if (mes < 1) {
-                        event.preventDefault();
-                        alert('Por favor, insira uma data válida');
-                    }
                     var ano = form.querySelector('select[id="ano"]').value;
-                    if (ano < 1) {
+                    if (dia < 1||mes < 1|| ano < 1) {
                         event.preventDefault();
                         alert('Por favor, insira uma data válida');
                     }
