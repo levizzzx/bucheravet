@@ -8,8 +8,10 @@
     </head>
     <body>
         <header>
+            <div id="voltar">
             <a href="index.html">Voltar</a>
             <img src="/imagens/logotipo.png" id="logo" alt="logotipo">
+        </div>
         </header>
         <div id="login">
             <h1>Olá, Dono de pets!</h1>
@@ -26,21 +28,33 @@ document.addEventListener('DOMContentLoaded', function() {
 var form = document.getElementById('entrar');
 
             form.addEventListener('submit', function(event) {
+
                 var email = form.querySelector('input[type="text"]').value;
+
                 if (email.indexOf('@') === -1) {
                     event.preventDefault();
                     alert('Por favor, insira um e-mail válido');
                 }
 });
 });
+            function lowerCase() {
+
+             const x = document.getElementById("email");
+             x.value = x.value.toLowerCase();
+
+}
 
 </script>
 
 
-            <p>Ou entre com seu E-mail e Senha:</p>
+            <p>Ou entre com seu E-mail e Senha.
+                Não tem uma conta? <a href="cad.html" >Cadastre-se.</a>
+            </p>
+
             <form id="entrar" action="index.html">
-                <input type="text" placeholder="E-mail">
-                <input type="password" placeholder="Senha" required>
+
+                <input type="text" placeholder="E-mail" id="email" oninput="lowerCase()" required>
+                <input type="password" placeholder="Senha" id="email" oninput="lowerCase()" required>
                 <button type="submit">Entrar</button>
                 
             </form>
