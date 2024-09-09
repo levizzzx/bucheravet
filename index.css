@@ -4,15 +4,29 @@ html {
 body {
     margin: 0;
 }
+body::-webkit-scrollbar {
+    width: 1vw;
+}
+body::-webkit-scrollbar-track {
+    background: rgb(252, 252, 252);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(95, 52, 173);
+    border-radius: 0.3vw;
+    height: 16%;
+}
 header {
     width: 100vw;
     height: 4vw;
     position: fixed;
     padding: 1.4vw;
     background-color:white;
+    z-index: 999;
 }
-header img {
+header .logotipo, .logotipo img {
     width: 15vw;
+    display: inline-block;
+    height: 100%;
 }
 a {
     text-decoration: none;
@@ -22,12 +36,20 @@ a {
     margin-left: 4vw;
 }
 #links {
-    position: absolute;
+    position: fixed;
     top: 2.3vw;
-    left: 15vw;
+    left: 19vw;
+    width: 35vw;
+    display: inline-block;
+}
+#links a {
+    transition: 1s;
+    line-height: 2vw;
 }
 #links a:hover {
-    font-size: 1.57vw;
+    font-size: 1.67vw;
+    transform: scale(1.05);
+    transition: 1s;
 }
 #login {
     position: absolute;
@@ -39,25 +61,34 @@ a {
     background-color: rgb(76, 0, 109);
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
+#login a {
+    color: white;
+    margin: 2vw;
+}
 #banner {
     width: 100%;
 }
 #servicos {
-    background-image: url("imagens/fundodog.jpg");
+    background:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url("imagens/fundodog.jpg");
     background-size: 152%;
     width: 100%;
     height: 100vw;
     background-repeat: no-repeat;
     box-sizing: content-box;
+    margin-bottom: -1vw;
 }
 #servico {
     display: block;
     float: right;
     width: 55vw;
-    height: 80%;
+    height: 63vw;
     margin: 13% 6% 0 0;
     background-color: white;
     border-radius: 2%;
+    position: relative;
+    opacity: 90%;
 }
 #servico div {
     border-radius: 3%;
@@ -68,6 +99,31 @@ a {
     vertical-align: top;
     height: 28%;
     transition: 1s;
+    position: absolute;
+}
+#banhoetosa {
+    right: 1vw;
+    bottom: 2vw;
+}
+#castracao {
+    left: 1vw;
+    bottom: 2vw;
+}
+#exame {
+    right: 1vw;
+    bottom: 22vw;
+}
+#vacina {
+    left: 1vw;
+    bottom: 22vw;
+}
+#internacao {
+    right: 1vw;
+    bottom: 42vw;
+}
+#consulta {
+    left: 1vw;
+    bottom: 42vw;
 }
 #servico div h2{
     color: darkolivegreen;
@@ -82,28 +138,62 @@ a {
     width: 30%;
 }
 #servico div:hover{
-    margin-top: 0%;
+    translate: 0 -2vw;
     transition: 1s;
     box-shadow: 0 0 20px 0px black;
 }
 #ns {
-    padding-left: 6%;
+    margin-left: 4vw;
     float: left;
-    padding-top: 25%;
-    width: 30%;
+    margin-top: 25%;
+    width: 32vw;
+    height: 50%;
     color: white;
+    border-radius: 2%;
+    text-align: center;
+    justify-content: center;
 }
 #ns h3 {
     font-size: 1.4vw;
     font-family: monospace;
+    width: 99%;
 }
 #ns h1 {
     font-size: 2.5vw;
     letter-spacing: 1%;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #ns p {
     font-size: 1.8vw;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.setas {
+    color: rgb(240, 240, 240);
+    top: 50%;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    height: 30%;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    font-size: 3vw;
+    width: 3vw;
+    opacity: 40%;
+}
+#left {
+    left: 0;
+}
+#left:hover, #right:hover {
+    opacity: 60%;
+    cursor: pointer;
+}
+#right {
+    right: 0;
 }
 #planos #dog {
     width: 100%;
@@ -234,11 +324,12 @@ aside a {
     margin: 0;
 }
 #sobre {
-    padding-top: 17vw;
-    height: 45vw;
+    margin-top: 17vw;
+    height: 55vw;
     background-image: url("imagens/sobre.png");
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position-y: -10vw;
     text-align: center;
 }
 #sobre h2 {
@@ -256,15 +347,226 @@ aside a {
 footer {
     background-color: rgb(95, 52, 173);
     width: 100%;
-    height: 7vw;
-    display: flex;
-    align-items: center;
-    
+    position: absolute;
+    padding: 2vw 0 2vw 0;
 }
-footer img {
-    padding-left: 30vw;
+footer .logotipo, #copy {
+    width: 17vw;
+    margin: 0;
 }
-footer span {
+#copy {
     color: white;
-    padding-left: 3vw;
+    position: relative;
 }
+#rodape {
+    font-size: 1.3vw;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#aniversario div {
+    margin: auto;
+    display: block;
+    height: 30vw;
+    width: 30vw;
+    background-color: rgb(80, 7, 214);
+    transition: 1ms;
+    border-radius: 2vw;
+    text-align: center;
+    font-family: monospace;
+}
+#aniversario {
+    bottom: 10.5vw;
+    width: 100%;
+    display: grid;
+    position: fixed;
+    z-index: 1000000;
+    transition: 1ms;
+}
+#escuro {
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.9;
+    transition: 1ms;
+    z-index: 1;
+}
+#niver {
+    display: none;
+}
+#inserirdata {
+    background-image: url(imagens/Aniversario.png);
+    width: 100%;
+    height: 50vw;
+    position: relative;
+}
+#btniver {
+    position: absolute;
+    bottom: 10vw;
+    right: 5vw;
+    width: 15vw;
+    height: 5vw;
+    border-radius: 1vw;
+    font-size: 2vw;
+    border: white;
+}
+#sair {
+    position: absolute;
+    top: 1vw;
+    left: 35.5vw;
+    color: white;
+    background-color: rgb(80, 7, 214);
+    border: 0;
+}
+#aniversario h1 {
+    font-size: 2vw;
+    color: rgb(248, 246, 246);
+    margin-top: 3vw;
+}
+#formAniversario p {
+    color: rgb(94, 248, 163);
+    font-size: 2vw;
+}
+#formAniversario input {
+    width: 15vw;
+    height: 6vh;
+    font-size: 2vw;
+    margin-top: 1vw;
+}
+#formAniversario button {
+    position: absolute;
+    bottom: 2vw;
+    left: 39vw;
+    width: 22vw;
+    height: 5vw;
+    border-radius: 1vw;
+    font-size: 2vw;
+}
+@media screen and (max-width: 700px) {
+    footer .logotipo, #copy {
+        width: 41%;
+    }
+    #copy{
+        margin-left: 1vw;
+    }
+    .logotipo img {
+        width: 100%;
+    }
+    span {
+        font-size: 250%;
+    }
+    header{
+        height: 15vh;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+    }
+    header .logotipo {
+        position: fixed;
+        width: 30%;
+        height: 8vw;
+        top: 0.3vw;
+        margin-left: 2vw;
+    }
+    #login {
+        width: 20%;
+        height: 7vw;
+        text-align: center;
+        top: 0.3vw;
+        margin-right: 2vw;
+    }
+    #login a {
+        font-size: 5vw;
+    }
+    #links {
+        display: inline-flex;
+        width: 100%;
+        top: 12%;
+        justify-content: space-between;
+        position: fixed;
+    }
+    #links a {
+        font-size: 5vw;
+        margin: 0;
+    }
+    #linkservico {
+        left: 4vw;
+        position: fixed;
+    }
+    #linkplano {
+        left: 44vw;
+        position: fixed;
+    }
+    #linksobre {
+        right: 4vw;
+        position: fixed;
+    }
+    #servicos {
+        margin-top: 10vw;
+    }
+    #links a:hover {
+        font-size: 6vw;
+    }
+    #sobre p {
+        font-size: 3vw;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+    }
+    #sobre #titsobre {
+        font-size: 4vw;
+        width: 100%
+    }
+    #sobre {
+        height: 70vh;
+        background-position-y: -5vw;
+        margin-top: 10vh;
+    }
+    #tipos {
+        flex-direction: column;
+        align-items: center;
+    }
+    #tipos aside {
+        width: 100%;
+        margin: 0;
+        height: 150vh;
+        border: solid rgba(0, 0, 0, 0.815) 0.5vh;
+    }
+    #tipos h1 {
+        font-size: 10vw;
+    }
+    #tipos img {
+        width: 70vw;
+    }
+    #tipos a {
+        width: 70vw;
+        height: 10vh;
+        align-content: center;
+        text-align: center;
+    }
+    #tipos .button span {
+        font-size: 5vw;
+    }
+    #c {
+        font-size: 5.25vw;
+        width: 100%;
+        margin: 0 auto 0 auto;
+        padding-top: 10vh;
+    }
+    #precos h2 {
+        font-size: 2.1vw;
+        width: 100%;
+        margin: 0 auto 0 auto;
+    }
+    #descplanos {
+        height: 50vh;
+        background-color: rgb(11, 16, 88);
+    }
+    #precos {
+        height: 654vh;
+    }
+}
+

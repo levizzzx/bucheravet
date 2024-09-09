@@ -2,62 +2,72 @@
 <html lang="PT-BR">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Início | Buchera Vet </title>
         <link rel="stylesheet" href="index.css">
         <link rel="icon" type="image/png" href="imagens/icon.png">
     </head>
     <body>
         <header>
-            <img src="imagens/logotipo.png" alt="logotipo">
+            <a href="index.html" class="logotipo">
+                <img src="imagens/logotipo.png" alt="logotipo">
+            </a>
             <div id="links">
-                <a href="#servico">Serviço</a>
-                <a href="#bt">Planos</a>
-                <a href="#titsobre">Sobre nós</a>
+                
+                <a href="#servico" id="linkservico">Serviço</a>
+                                
+                <a href="#bt" id="linkplano">Planos</a>
+                                
+                <a href="#titsobre" id="linksobre">Sobre nós</a>
+                
             </div>
-            <a href="login.html" id="login">Login</a>
+            <div id="login">
+                <a href="login.html">Login</a>
+            </div>
         </header>
         <div id="servicos">
             <div id="ns">
-                <h3>_______ Nossos serviços</h3>
+                <h3>__________ Nossos serviços __________</h3>
                 <h1>Oferecemos diversos serviços com profissionais altamente qualificados.</h1>
                 <p>Tudo o que você espera de um atendimento veterinário de qualidade, em um só lugar. Cada espaço foi totalmente planejado e equipado para oferecer à você e ao seu animal, a melhor experiência possível! </p>
                 <p>Consultas, internações, cirurgias, vacinas, exames laboratoriais e de imagem, especialidades veterinárias, animais silvestres e muito mais!</p>
             </div>
             <div>
+                <button class="setas" onclick="trocaBanner()" onmouseover="parar()" onmouseout="continuar()" id="left"> < </button>
                 <section id="servico">
-                    <div>
+                    <div id="consulta">
                         <img src="imagens/11.png">
                         <h2>Consultas</h2>
                         <p>Temos plantões veterinários 24 horas por dia, estamos sempre prontos para atender o seu animal de estimação.</p>
                     </div>
-                    <div>
+                    <div id="internacao">
                         <img src="imagens/22.png">
                         <h2>Internações</h2>
                         <p>Nossas internações são separadas para cães e gatos, as baias são espaçosas e individualizadas, para garantir o conforto e recuperação de seu pet.</p>
                     </div>
-                    <div>
+                    <div id="vacina">
                         <img src="imagens/33.png">
                         <h2>Vacinas</h2>
                         <p>Oferecemos diversos tipos de vacinas importadas para o seu pet!</p>
                     </div>
-                    <div>
+                    <div id="exame">
                         <img src="imagens/4.png">
                         <h2>Exames</h2>
                         <p>Contamos com profissionais altamente qualificados para a realização de exames laboratoriais e de imagem.</p>
                     </div>
-                    <div>
+                    <div id="castracao">
                         <img src="imagens/5.png">
                         <h2>Castração</h2>
                         <p>Nossas cirurgias de castração são 100% monitoradas por um Médico Veterinário Anestesista, garantindo a o bem-estar do seu animal de estimação.</p>
                     </div>
-                    <div>
+                    <div id="banhoetosa">
                         <img src="imagens/6.png">
                         <h2>Banho e Tosa</h2>
                         <p>Nosso banho e tosa conta com profissionais altamente qualificados e produtos premium, visando o bem-estar do seu pet.</p>
                     </div>
                 </section>
             </div>
-            
+            <button class="setas" onclick="trocaBanner()" onmouseover="parar()" onmouseout="continuar()" id="right"> > </button>
         </div>
         <section id="planos">
             <img src="imagens/banner.png" id="banner" alt="Banner">
@@ -72,10 +82,12 @@
                     <a href="cadastro.html" id="bt" class="button"><span>&#8702;Contratar Plano de Saúde Pet</span></a>
                 </article>
             </div>
-            <article id="precos">
-                <h1 id="c">Planos para todo pet e para todos os momentos</h1>
-                <h2><strong>Seu pet protegido sempre:</strong> mesmo preço e cobertura, independente da raça ou idade</h2>
-                <h2><strong>Precisou, usou:</strong> sem necessidade de autorização ou burocracia para utilizar</h2>
+            <article id="precos">         
+                <div id="descplanos">         
+                    <h1 id="c">Planos para todo pet e para todos os momentos</h1>
+                    <h2><strong>Seu pet protegido sempre:</strong> mesmo preço e cobertura, independente da raça ou idade</h2>
+                    <h2><strong>Precisou, usou:</strong> sem necessidade de autorização ou burocracia para utilizar</h2>
+                </div>
                 <div id="tipos">
                     <aside id="Leve">
                         <img src="imagens/leve.png" alt="">
@@ -114,9 +126,71 @@
             </h2>
             <p>Realizamos atendimentos, vacinas, emergência, internação separada de cães e gatos, área de passeio, hospedagem, cirurgias, atendemos animais exóticos com horário marcado, exames de imagem com horário marcado e exames laboratoriais.</p>
         </section>
+        <div id="niver">
+            <section id="aniversario">
+                <div>
+                    <button onclick="c()" id="sair" type="submit">Sair</button>
+                    <h1>Nós damos descontos no aniversário do seu Pet!</h1>
+                    <form id="formAniversario">
+                        <p for="dataAniversario">Data de Aniversário do Pet:</p>
+                        <input type="date" id="dataAniversario" required>
+                        <button type="submit">Salvar Data</button>
+                    </form>
+                </div>
+            </section>
+            <div id="escuro">
+            </div>
+        </div>
+        <div id="inserirdata">
+            <button onclick="a()" id="btniver" type="submit">Clique aqui.</button>
+        </div>
         <footer>
-            <img src="imagens/logotipo.png" alt="logotipo">
-            <span>&copy; Todos os direitos reservados</span>
+            <div id="rodape">
+                <a href="index.html" class="logotipo">
+                    <img src="imagens/logotipo.png" alt="logotipo">
+                </a>
+                <div id="copy">
+                    <span>&copy; Todos os direitos reservados</span>
+                </div>
+            </div>
         </footer>
     </body>
 </html>
+
+<script>
+    var banner = document.getElementById('servicos');
+    var banners = [
+        'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("imagens/fundodog.jpg")',
+        'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("imagens/fundocat.jpg")'
+    ];
+    
+    var bannerAtual = 0;
+    function trocaBanner(){
+            bannerAtual++;
+            if(bannerAtual == banners.length){
+                bannerAtual = 0;
+            }
+            banner.style.backgroundImage = banners[bannerAtual];
+        }
+    document.addEventListener('DOMContentLoaded', trocaBanner());
+    let intervalo = setInterval(trocaBanner, 3000);
+    function parar () {
+        clearInterval(intervalo);
+    };
+    function continuar () {
+        intervalo = setInterval(trocaBanner, 3000);
+    };
+    
+    function a (){
+        const data = document.getElementById('btniver');
+        data.addEventListener('click', b());
+    };
+    function b() {
+        const niver = document.getElementById('niver');
+        niver.style.display = niver.style.display === 'block' ? 'block' : 'block';
+    }
+    function c(){
+        const niver = document.getElementById('niver');
+        niver.style.display = niver.style.display === 'none' ? 'block' : 'none';
+    };
+</script>
