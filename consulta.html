@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login | Buchera vet</title>
+        <link rel="stylesheet" href="consulta.css">
+        <link rel="icon" type="image/png" href="imagens/icon.png">
+    </head>
+    <body>
+        <header>
+            <div id="botao">
+            <a href="index.html" id="voltar">Voltar</a>
+            <img src="imagens/logotipo.png" id="logo" alt="logotipo">
+        </div>
+        </header>
+
+        <div id="consulta">
+            <form id="consulta">
+                <fieldset>
+                <input type="text" placeholder="Insira o nome do pet" required>
+
+                <input type="text" placeholder="Insira o nome do Dono" required>
+                
+                <div id="tipos">
+                    <select form="consulta" name="tipo" required id="tipo">
+                        <option value="0" selected disabled>Especialidade Veterinária</option>
+                        <option value="1">Clínica Geral</option>
+                        <option value="2">Cardiologista</option>
+                        <option value="3">Odontológico</option>
+                        <option value="4">Dermatologista</option>
+                        <option value="5">Comportamental</option>
+                </select>
+                </div>
+
+                <div id="medicos">
+                     <select form="consulta" name="medicos" required id="medicos">
+                        <option value="0" selected disabled>Médico Responsável</option>
+                        <option value="1">Qualquer Médico</option>
+                        <option value="2">Dr. Caio Yudi Mine Hada </option>
+                        <option value="3">Dr. Levi Rodrigues</option>
+                        <option value="4">Dr. Murillo Levis</option>
+                        <option value="5">Dr. Daniel Evangelista</option>
+                        <option value="6">Dr. Rafael Burbach</option>
+
+                </select>
+                 </div>
+
+                        <script>
+
+                        const medicos = {
+                                1: ['Dr. Caio Yudi Mine Hada'],
+                                2: ['Dr. Levi Rodrigues'],
+                                3: ['Dr. Murillo Levis'],
+                                4: ['Dr. Daniel Evangelista'],
+                                5: ['Dr. Rafael Burbach']
+                            };
+
+                            document.getElementById('tipo').addEventListener('change', function() {
+                                const tipo = this.value;
+                                const medicoSelect = document.getElementById('medicos').querySelector('select');
+
+                                medicoSelect.innerHTML = '<option value="0" selected disabled>Médico Responsável</option>';
+
+                                if (medicos[tipo]) {
+                                    medicos[tipo].forEach(medico => {
+                                        medicoSelect.innerHTML += `<option value="${medico}">${medico}</option>`;
+                                    });
+                                }
+                            });
+
+                        </script>
+
+
+                <input type="date" id="dataConsulta" required>
+
+                <input type="time" id="hora" name="hora" min="07:30" max="19:30" required />
+
+                <button type="submit">Agendar</button>
+        
+                </fieldset>
+        </form>
+        </div>
+    </body>
+</html>
