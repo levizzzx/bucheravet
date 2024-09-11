@@ -126,10 +126,10 @@
             </h2>
             <p>Realizamos atendimentos, vacinas, emergência, internação separada de cães e gatos, área de passeio, hospedagem, cirurgias, atendemos animais exóticos com horário marcado, exames de imagem com horário marcado e exames laboratoriais.</p>
         </section>
-        <div id="niver">
+        <div id="niver" class="login">
             <section id="aniversario">
                 <div>
-                    <button onclick="c()" id="sair" type="submit">Sair</button>
+                    <button onclick="sumir()" id="sair" type="submit">X</button>
                     <h1>Nós damos descontos no aniversário do seu Pet!</h1>
                     <form id="formAniversario">
                         <p for="dataAniversario">Data de Aniversário do Pet:</p>
@@ -142,8 +142,9 @@
             </div>
         </div>
         <div id="inserirdata">
-            <button onclick="a()" id="btniver" type="submit">Clique aqui.</button>
+            <button onclick="aparecer()" id="btniver" type="submit">Clique aqui.</button>
         </div>
+        <p id="mensagemAniversario"></p>
         <footer>
             <div id="rodape">
                 <a href="index.html" class="logotipo">
@@ -181,16 +182,51 @@
         intervalo = setInterval(trocaBanner, 3000);
     };
     
-    function a (){
-        const data = document.getElementById('btniver');
-        data.addEventListener('click', b());
-    };
-    function b() {
+    function aparecer() {
         const niver = document.getElementById('niver');
         niver.style.display = niver.style.display === 'block' ? 'block' : 'block';
     }
-    function c(){
+    function sumir(){
         const niver = document.getElementById('niver');
         niver.style.display = niver.style.display === 'none' ? 'block' : 'none';
     };
+
+        const form = document.getElementById('formAniversario');
+        const mensagemAniversario = document.getElementById('mensagemAniversario');
+      
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          
+          const hoje = new Date();
+          const dataAniversario = new Date(document.getElementById('dataAniversario').value);
+
+          if (dataAniversario.getDate()+1 === hoje.getDate() && dataAniversario.getMonth() === hoje.getMonth()) {
+            mensagemAniversario.textContent = 'Feliz Aniversário para seu pet!';
+          } else {
+            mensagemAniversario.textContent = 'Data de aniversário do seu pet foi salva.';
+          }
+        });
+        const fechar = document.getElementById('sair') 
+        const abrir = document.getElementById('btniver')
+        const formEfeito = document.getElementById('niver')
+        abrir.addEventListener('click', function() {
+        formEfeito.classList.add('mostrar');
+        });
+        fechar.addEventListener('click', function() {
+        formEfeito.classList.remove('mostrar');
+        });
+
+
+        const servicos = document.getElementById('servico');
+        const divsv = servicos.querySelectorAll('div');
+        divsv.forEach(botao => {
+            botao.addEventListener('mouseover', function() {
+                botao.classList.add('adc');
+            });
+        });
+        divsv.forEach(botao => {
+            botao.addEventListener('mouseout', function() {
+                botao.classList.remove('adc');
+            });
+        });
 </script>

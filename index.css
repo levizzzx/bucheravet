@@ -137,7 +137,7 @@ a {
 #servico img {
     width: 30%;
 }
-#servico div:hover{
+.adc{
     translate: 0 -2vw;
     transition: 1s;
     box-shadow: 0 0 20px 0px black;
@@ -412,6 +412,7 @@ footer .logotipo, #copy {
     border-radius: 1vw;
     font-size: 2vw;
     border: white;
+    cursor: pointer;
 }
 #sair {
     position: absolute;
@@ -420,6 +421,7 @@ footer .logotipo, #copy {
     color: white;
     background-color: rgb(80, 7, 214);
     border: 0;
+    cursor: pointer;
 }
 #aniversario h1 {
     font-size: 2vw;
@@ -444,6 +446,7 @@ footer .logotipo, #copy {
     height: 5vw;
     border-radius: 1vw;
     font-size: 2vw;
+    cursor: pointer;
 }
 @media screen and (max-width: 700px) {
     footer .logotipo, #copy {
