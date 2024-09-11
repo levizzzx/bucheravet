@@ -21,7 +21,7 @@ header {
     position: fixed;
     padding: 1.4vw;
     background-color:white;
-    z-index: 999;
+    z-index: 1;
 }
 header .logotipo, .logotipo img {
     width: 15vw;
@@ -381,7 +381,7 @@ footer .logotipo, #copy {
     width: 100%;
     display: grid;
     position: fixed;
-    z-index: 1000000;
+    z-index: 10;
     transition: 1ms;
 }
 #escuro {
@@ -390,7 +390,7 @@ footer .logotipo, #copy {
     width: 100%;
     height: 100%;
     top: 0;
-    opacity: 0.9;
+    opacity: 0.5;
     transition: 1ms;
     z-index: 1;
 }
