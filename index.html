@@ -126,10 +126,11 @@
             </h2>
             <p>Realizamos atendimentos, vacinas, emergência, internação separada de cães e gatos, área de passeio, hospedagem, cirurgias, atendemos animais exóticos com horário marcado, exames de imagem com horário marcado e exames laboratoriais.</p>
         </section>
+        
         <div id="niver" class="login">
             <section id="aniversario">
                 <div>
-                    <button onclick="sumir()" id="sair" type="submit">X</button>
+                    <button onclick="saida()" id="sair" type="submit">X</button>
                     <h1>Nós damos descontos no aniversário do seu Pet!</h1>
                     <form id="formAniversario">
                         <p for="dataAniversario">Data de Aniversário do Pet:</p>
@@ -138,8 +139,7 @@
                     </form>
                 </div>
             </section>
-            <div id="escuro">
-            </div>
+            <div id="escuro"></div>
         </div>
         <div id="inserirdata">
             <button onclick="aparecer()" id="btniver" type="submit">Clique aqui.</button>
@@ -179,17 +179,20 @@
         clearInterval(intervalo);
     };
     function continuar () {
-        intervalo = setInterval(trocaBanner, 3000);
+        intervalo = setInterval(trocaBanner, 3000); 
     };
     
     function aparecer() {
         const niver = document.getElementById('niver');
-        niver.style.display = niver.style.display === 'block' ? 'block' : 'block';
+        niver.style.display = 'block';
     }
-    function sumir(){
-        const niver = document.getElementById('niver');
-        niver.style.display = niver.style.display === 'none' ? 'block' : 'none';
-    };
+    function confirmarsaida() {
+            let resposta = confirm("Sua data pode não ter sido salva! Deseja sair?");
+            if (resposta) {
+                niver.style.display = 'none';
+            }
+        }
+    document.getElementById('sair').addEventListener('click', confirmarsaida);
 
         const form = document.getElementById('formAniversario');
         const mensagemAniversario = document.getElementById('mensagemAniversario');
@@ -204,8 +207,15 @@
             mensagemAniversario.textContent = 'Feliz Aniversário para seu pet!';
           } else {
             mensagemAniversario.textContent = 'Data de aniversário do seu pet foi salva.';
-          }
+          }   
+          document.getElementById('sair').removeEventListener('click', confirmarsaida);
+          document.getElementById('sair').addEventListener('click', function saida() {
+        niver.style.display = 'none';
         });
+        niver.style.display = 'none';
+        });
+        
+
         const fechar = document.getElementById('sair') 
         const abrir = document.getElementById('btniver')
         const formEfeito = document.getElementById('niver')
