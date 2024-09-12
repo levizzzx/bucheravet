@@ -174,6 +174,41 @@
                         </select>
                     </div>
                     <button type="submit">Entrar</button>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            document.getElementById('cadastro').addEventListener('submit', function() {
+                                
+                         document.cookie = 'nome=' + encodeURIComponent(document.querySelector('input[name="nome"]').value);
+
+                                document.cookie = 'email=' + encodeURIComponent(document.querySelector('input[name="email"]').value);
+                                   document.cookie = 'dia=' + encodeURIComponent(document.querySelector('select[name="dia"]').value);
+
+                                document.cookie = 'mes=' + encodeURIComponent(document.querySelector('select[name="mes"]').value);
+                                    document.cookie = 'ano=' + encodeURIComponent(document.querySelector('select[name="ano"]').value);
+                            });
+                        });
+                        </script>
+                    
+                    
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            function getCookie(name) {
+                                var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                                              return match ? decodeURIComponent(match[2]) : '';
+                            }
+                        
+                            document.querySelector('input[name="nome"]').value = getCookie('nome');
+                            document.querySelector('input[name="email"]').value = getCookie('email');
+
+                         document.querySelector('select[name="dia"]').value = getCookie('dia') || '0';
+                            document.querySelector('select[name="mes"]').value = getCookie('mes') || '0';
+
+                                   document.querySelector('select[name="ano"]').value = getCookie('ano') || '0';
+                        });
+                        </script>
+                        
+
                 </fieldset>
             </form>
             <div id="login">
