@@ -77,7 +77,13 @@
                 <input type="time" id="hora" name="hora" min="07:30" max="19:30" required />
 
                 <button type="submit">Agendar</button>
-        
+                
+                <script>
+                document.getElementById('voltar').addEventListener('click', function() {
+                alert('Você pode perder os dados da consulta se não tiver agendado ainda. Deseja realmente sair?');});
+                </script>
+
+                
                 </fieldset>
         </form>
         </div>
