@@ -25,6 +25,19 @@
                 <a href="login.html">Login</a>
             </div>
         </header>
+        <div id="cookie">
+            <h2>
+                Cookies.
+            </h2>
+            <p>
+                Este site utiliza cookies para te proporcionar uma melhor esperiência. Ao continuar navegando, você aceita nossa Política de Privacidade
+            </p>
+            <div id="ok">
+                <span>
+                    OK
+                </span>
+            </div>
+        </div>
         
         <div id="servicos">
             <div id="ns">
@@ -247,4 +260,16 @@
     window.onload = function() {
     window.alert(" Seja bem-vindo à Buchera's Vet! Estamos aqui para cuidar do seu pet da melhor forma possível.");
 };
+    const botao = document.getElementById('ok');
+        botao.addEventListener ('click',function cookie (){
+            const cookie = document.getElementById('cookie');
+            cookie.style.opacity = 0;
+        }
+        
+)
+        function surgir() {
+            const cookie = document.getElementById('cookie');
+            cookie.style.opacity = 1;
+        }
+        document.addEventListener('DOMContentLoaded', surgir())
 </script>
