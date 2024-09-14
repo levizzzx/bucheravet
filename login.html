@@ -5,438 +5,65 @@
         <title>Login | Buchera vet</title>
         <link rel="stylesheet" href="login.css">
         <link rel="icon" type="image/png" href="imagens/icon.png">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script>window.addEventListener("beforeunload", function (event) {
+            const mensagem = "Você tem certeza que deseja sair da página?";
+            event.returnValue = mensagem;
+            return mensagem;    
+        });
+        </script>
     </head>
     <body>
         <header>
-            
+            <div id="botao">
             <a href="index.html" id="voltar">Voltar</a>
             <img src="imagens/logotipo.png" id="logo" alt="logotipo">
+        </div>
         </header>
-        <div class="login">
-            <div id="login">
-            <h1>Login</h1>
-            
+        <div id="login">
+            <h1>Olá, Dono de pets!</h1>
+            <p>Para acessar o site online da Buchera Vet e os Planos de Saúde, entre com sua conta
+                
+            </p>
             <img src="imagens/2.png" alt="goggle">
             <p>
-                Ou entre com seu E-mail e Senha:
+                Ou entre com seu E-mail e Senha.
             </p>
 
             <form id="entrar" action="index.html">
-                <label id="em" for="email">E-mail</label>
-                <i id="simemail" class="fas fa-envelope"></i>
-                <input type="email" placeholder="" id="email" oninput="lowerCase(), emailinp()" required>
-                <i id="simsenha" class="fas fa-lock"></i>
-                <label id="sen" for="senha">Senha</label>
-                <input type="password" placeholder="" id="senha" oninput="lowerCase(), senhainp()" required>
+
+                <input type="email" placeholder="E-mail" id="email" oninput="lowerCase()" required>
+                <input type="password" placeholder="Senha" id="email" oninput="lowerCase()" required>
                 <button type="submit">Entrar</button>
             </form>
             <p>
-                Não tem uma conta? <a href="#" id="mudarcad">Cadastre-se.</a>
+                Não tem uma conta? <a href="cadastro.html" >Cadastre-se.</a>
             </p>
-            </div>
-                <div id="local">
-                </div>
-            <div id="loginmsg">
-                <h2>Bem-vindo de volta ao Buchera Vet</h2>
-                <p>Estamos felizes em tê-lo(a) de volta. Faça login para acessar sua conta, verificar os próximos agendamentos, acompanhar o histórico de atendimento dos seus pets e muito mais.</p>
-            </div>
-            <form method="post" id="cadastro" action="index.html" name="cad">
-                
-                <fieldset id="ap" class="sumir">
-                    <h1>Cadastrar-se</h1>
-                    <div id="cadastrar">
-                        <article>
-                            <i class="fas fa-user"></i>
-                            <label id="nomelabel" for="nome">Nome</label>
-                            <input id="nomein" type="text" placeholder="" name="nome" oninput="inpnome()" required>
-                        </article>
-                        <article>   
-                            <i class="fas fa-envelope"></i>                   
-                            <label id="emlabel" for="email">E-mail</label>
-                            
-                            <input id="emin" type="email" placeholder="" name="email" oninput="inpem()" required>
-                        </article>
-                        <article>
-                            <i class="fas fa-lock"></i>
-                            <label id="senlabel" for="password">Password</label>
-                            
-                            <input id="senin" type="password" placeholder="" oninput="inpsenha()" required>
-                        </article>
-                        
-                        <div id="data">
-                            <select form="cad" name="dia" required id="dia">
-                                <option value="0" selected disabled>Dia</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                            <select form="cad" name="mes" id="mes">
-                                <option value="0" selected disabled>Mês</option>
-                                <option value="1">Janeiro</option>
-                                <option value="2">Fevereiro</option>
-                                <option value="3">Março</option>
-                                <option value="4">Abril</option>
-                                <option value="5">Maio</option>
-                                <option value="6">Junho</option>
-                                <option value="7">Julho</option>
-                                <option value="8">Agosto</option>
-                                <option value="9">Setembro</option>
-                                <option value="10">Outubro</option>
-                                <option value="11">Novembro</option>
-                                <option value="12">Dezembro</option>
-                            </select>
-                            <select form="cad" name="ano" required id="ano">
-                                <option value="0" selected disabled>Ano</option>
-                                <option value="1">1924</option>
-                                <option value="2">1925</option>
-                                <option value="3">1926</option>
-                                <option value="4">1927</option>
-                                <option value="5">1928</option>
-                                <option value="6">1929</option>
-                                <option value="7">1930</option>
-                                <option value="8">1931</option>
-                                <option value="9">1932</option>
-                                <option value="10">1933</option>
-                                <option value="11">1934</option>
-                                <option value="12">1935</option>
-                                <option value="13">1936</option>
-                                <option value="14">1937</option>
-                                <option value="15">1938</option>
-                                <option value="16">1939</option>
-                                <option value="17">1940</option>
-                                <option value="18">1941</option>
-                                <option value="19">1942</option>
-                                <option value="20">1943</option>
-                                <option value="21">1944</option>
-                                <option value="22">1945</option>
-                                <option value="23">1946</option>
-                                <option value="24">1947</option>
-                                <option value="25">1948</option>
-                                <option value="26">1949</option>
-                                <option value="27">1950</option>
-                                <option value="28">1951</option>
-                                <option value="29">1952</option>
-                                <option value="30">1953</option>
-                                <option value="31">1954</option>
-                                <option value="32">1955</option>
-                                <option value="33">1956</option>
-                                <option value="34">1957</option>
-                                <option value="35">1958</option>
-                                <option value="36">1959</option>
-                                <option value="37">1960</option>
-                                <option value="38">1961</option>
-                                <option value="39">1962</option>
-                                <option value="40">1963</option>
-                                <option value="41">1964</option>
-                                <option value="42">1965</option>
-                                <option value="43">1966</option>
-                                <option value="44">1967</option>
-                                <option value="45">1968</option>
-                                <option value="46">1969</option>
-                                <option value="47">1970</option>
-                                <option value="48">1971</option>
-                                <option value="49">1972</option>
-                                <option value="50">1973</option>
-                                <option value="51">1974</option>
-                                <option value="52">1975</option>
-                                <option value="53">1976</option>
-                                <option value="54">1977</option>
-                                <option value="55">1978</option>
-                                <option value="56">1979</option>
-                                <option value="57">1980</option>
-                                <option value="58">1981</option>
-                                <option value="59">1982</option>
-                                <option value="60">1983</option>
-                                <option value="61">1984</option>
-                                <option value="62">1985</option>
-                                <option value="63">1986</option>
-                                <option value="64">1987</option>
-                                <option value="65">1988</option>
-                                <option value="66">1989</option>
-                                <option value="67">1990</option>
-                                <option value="68">1991</option>
-                                <option value="69">1992</option>
-                                <option value="70">1993</option>
-                                <option value="71">1994</option>
-                                <option value="72">1995</option>
-                                <option value="73">1996</option>
-                                <option value="74">1997</option>
-                                <option value="75">1998</option>
-                                <option value="76">1999</option>
-                                <option value="77">2000</option>
-                                <option value="78">2001</option>
-                                <option value="79">2002</option>
-                                <option value="80">2003</option>
-                                <option value="81">2004</option>
-                                <option value="82">2005</option>
-                                <option value="83">2006</option>
-                                <option value="84">2007</option>
-                                <option value="85">2008</option>
-                                <option value="86">2009</option>
-                                <option value="87">2010</option>
-                                <option value="88">2011</option>
-                                <option value="89">2012</option>
-                                <option value="90">2013</option>
-                                <option value="91">2014</option>
-                            </select>
-                        </div>
-                        <button id="butcad" type="submit">Entrar</button>
-                       <p id="conta">Já tem uma conta? <a href="#" id="mudarlog">Faça o Login.</a></p>
-                    </div>
-                    
-
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            document.getElementById('cadastro').addEventListener('submit', function() {
-                                
-                         document.cookie = 'nome=' + encodeURIComponent(document.querySelector('input[name="nome"]').value);
-
-                                document.cookie = 'email=' + encodeURIComponent(document.querySelector('input[name="email"]').value);
-                                   document.cookie = 'dia=' + encodeURIComponent(document.querySelector('select[name="dia"]').value);
-
-                                document.cookie = 'mes=' + encodeURIComponent(document.querySelector('select[name="mes"]').value);
-                                    document.cookie = 'ano=' + encodeURIComponent(document.querySelector('select[name="ano"]').value);
-                            });
-                        });
-                        </script>
-                    
-                    
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            function getCookie(name) {
-                                var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-                                              return match ? decodeURIComponent(match[2]) : '';
-                            }
-                        
-                            document.querySelector('input[name="nome"]').value = getCookie('nome');
-                            document.querySelector('input[name="email"]').value = getCookie('email');
-
-                         document.querySelector('select[name="dia"]').value = getCookie('dia') || '0';
-                            document.querySelector('select[name="mes"]').value = getCookie('mes') || '0';
-
-                                   document.querySelector('select[name="ano"]').value = getCookie('ano') || '0';
-                        });
-                        </script>
-                </fieldset>
-                <div id="cadmsg" class="sumir">
-                    <h2>Bem-vindo ao Buchera Vet!</h2>
-                    <p>Ao se cadastrar, você poderá agendar consultas, acompanhar o histórico de saúde dos seus pets, receber dicas de cuidados e muito mais.</p>
-                </div>
-            </form>      
         </div>
-        </div>     
     </body>
 </html>
 
 <script>
+
     document.addEventListener('DOMContentLoaded', function() {
-        
-        var form = document.getElementById('entrar');
-        
-                    form.addEventListener('submit', function(event) {
-        
-                        var email = form.querySelector('input[type="email"]').value;
-        
-                        if (email.indexOf('@') === -1) {
-                            event.preventDefault();
-                            alert('Por favor, insira um e-mail válido');
-                        }
-        });
-        });
-                    function lowerCase() {
-        
-                    const x = document.getElementById("email");
-                    x.value = x.value.toLowerCase();
-        
-        }
-
-    const labelsen = document.getElementById('sen');
-    const labelem = document.getElementById('em');
-    const email = document.getElementById('email')
-    const senha = document.getElementById('senha');
     
-                function addsen() {
-                    labelsen.classList.add('up')
-                }
-                senha.addEventListener('focus', addsen);
-                
-                function remosen(){
-                    labelsen.classList.remove('up')
-                }
-                senha.addEventListener('blur', remosen);   
-
-                function senhainp() {
-                    const valorsen = senha.value
-                    if (valorsen !== "") {
-                    senha.removeEventListener('blur', remosen);
-                    } else {
-                        senha.addEventListener('blur', remosen);
-                    }
-                    };
-
-                function addem() {
-                    labelem.classList.add('up')
-                };
-                email.addEventListener('focus', addem);
-
-                function remoem() {
-                    labelem.classList.remove('up')
-                }
-                email.addEventListener('blur', remoem);
-
-                function emailinp() {
-                    const valorem = email.value
-                    if (valorem.trim() !== "") {
-                        email.removeEventListener('blur', remoem);
-                    } else {
-                        email.addEventListener('blur', remoem);
-                    }};
-
-
-                const mudarcadastro = document.getElementById('mudarcad')
-
-                mudarcadastro.addEventListener('click', function(event){
-                    event.preventDefault()
-                    setTimeout (function girar() {
-                        const giro = document.getElementById('local')
-                        giro.classList.add('girar')
-                    }, 300)
-                    
-                    
-                    setTimeout (function s() {
-                        const log = document.getElementById('login')
-                        const msg = document.getElementById('loginmsg')
-                        log.classList.add('sumir')
-                        msg.classList.add('sumirmsg')
-                    }, 100)
-                    
-
-                    setTimeout (function a() {
-                        const cad = document.getElementById('ap')
-                        const cadmsg = document.getElementById('cadmsg')
-                        cad.classList.remove('sumir')
-                        cadmsg.classList.remove('sumir')
-                    }, 1500)
-                });
-
-                const mudarlog = document.getElementById('mudarlog')
-
-                mudarlog.addEventListener('click', function(event){
-                    event.preventDefault()
-                    
-                    setTimeout (function girar() {
-                        const giro = document.getElementById('local')
-                        giro.classList.remove('girar')
-                    }, 300)
-
-                    
-                    setTimeout (function s() {
-                        const log = document.getElementById('login')
-                        const msg = document.getElementById('loginmsg')
-                        log.classList.remove('sumir')
-                        msg.classList.remove('sumirmsg')
-                    }, 1500)
-                    
-                    setTimeout (function a() {
-                        const cad = document.getElementById('ap')
-                        const cadmsg = document.getElementById('cadmsg')
-                        cad.classList.add('sumir')
-                        cadmsg.classList.add('sumir')
-                    }, 100)
-                });
-
-                const nomelabel = document.getElementById('nomelabel');
-                const emlabel = document.getElementById('emlabel');
-                const senlabel = document.getElementById('senlabel');
-                const emin = document.getElementById('emin')
-                const senin = document.getElementById('senin');
-                const nomein = document.getElementById('nomein');
+    var form = document.getElementById('entrar');
     
-                function senadd() {
-                    senlabel.classList.add('sub')
-                }
-                senin.addEventListener('focus', senadd);
-                
-                function senremo(){
-                    senlabel.classList.remove('sub')
-                }
-                senin.addEventListener('blur', senremo);   
-
-                function inpsenha() {
-                    const senvalor = senin.value
-                    if (senvalor !== "") {
-                    senin.removeEventListener('blur', senremo);
-                    } else {
-                        senin.addEventListener('blur', senremo);
+                form.addEventListener('submit', function(event) {
+    
+                    var email = form.querySelector('input[type="email"]').value;
+    
+                    if (email.indexOf('@') === -1) {
+                        event.preventDefault();
+                        alert('Por favor, insira um e-mail válido');
                     }
-                    };
-
-                function emadd() {
-                    emlabel.classList.add('sub')
-                };
-                emin.addEventListener('focus', emadd);
-
-                function emremo() {
-                    emlabel.classList.remove('sub')
-                }
-                emin.addEventListener('blur', emremo);
-
-                function inpem() {
-                    const emvalor = emin.value
-                    if (emvalor.trim() !== "") {
-                        emin.removeEventListener('blur', emremo);
-                    } else {
-                        emin.addEventListener('blur', emremo);
-                    }};
-                    
-                
-
-
-
-                    function nomeadd() {
-                    nomelabel.classList.add('sub')
-                };
-                nomein.addEventListener('focus', nomeadd);
-
-                function nomeremo() {
-                    nomelabel.classList.remove('sub')
-                }
-                nomein.addEventListener('blur', nomeremo);
-
-                function inpnome() {
-                    const nomevalor = nomein.value
-                    if (nomevalor.trim() !== "") {
-                        nomein.removeEventListener('blur', nomeremo);
-                    } else {
-                        nomein.addEventListener('blur', nomeremo);
-                    }};
+    });
+    });
+                function lowerCase() {
+    
+                 const x = document.getElementById("email");
+                 x.value = x.value.toLowerCase();
+    
+    }
+    
 </script>
+
