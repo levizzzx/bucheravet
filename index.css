@@ -448,6 +448,45 @@ footer .logotipo, #copy {
     font-size: 2vw;
     cursor: pointer;
 }
+#cookie {
+    width: 18vw;
+    height: 13vw;
+    background-color:  rgb(17, 21, 48);
+    position: fixed;
+    bottom: 5vw;
+    right: 2vw;
+    z-index: 1000;
+    color: aliceblue;
+    padding: 2vw;
+    transition: 1s;
+    opacity: 0;
+}
+#cookie h2{
+    font-size: 2vw;
+    margin: 0;
+    
+}
+#cookie p{
+    font-size: 1vw;
+}
+#cookie div{
+    width: 5vw;
+    height: 4vw;
+    background-color:crimson;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1vw;
+}
+#cookie div:hover {
+    filter: brightness(0.5);
+    background-color: brown;
+    
+}
+#span {
+    pointer-events: none;
+}
 @media screen and (max-width: 700px) {
     footer .logotipo, #copy {
         width: 41%;
