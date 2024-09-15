@@ -8,6 +8,17 @@
         <link rel="icon" type="image/png" href="imagens/icon.png">
     </head>
     <body>
+        <div id="popup">
+            <div id="alinhamento">
+                <img src="/imagens/coelhobem.png" id="coelho" alt="coelho">
+            <div class="popup-content">
+                <h2>Bem-vindo ao Buchera Vet!</h2>
+                <img src="/imagens/bemvindo.png" id="bemv" alt="bemvindo">
+                <p>Cuidando do seu pet com carinho.</p>
+                <button onclick="fecharPopup()">OK</button>
+            </div>
+            </div>
+        </div>
         <header>
             <a href="index.html" class="logotipo">
                 <img src="imagens/logotipo.png" alt="logotipo">
@@ -89,7 +100,7 @@
         <section id="planos">
             <img src="imagens/banner.png" id="banner" alt="Banner">
             <div id="dog">
-                <article> 
+                <article id="dogBeneficios" class="fadeOut"> 
                     <p id="topo">planos de saúde</p>
                     <p id="tit">Uma vida mais longa e saudável para o seu pet</p>  
                     <p id="mid">Conheça os benefícios do plano de saúde da Buchera Vet e comece a proteger seu pet agora mesmo</p>
@@ -107,7 +118,7 @@
                 </div>
                 <div class="carrossel">
                     <button class="anterior">❮</button>
-                    <div id="tipos"> aside
+                    <div id="tipos">
                         <aside id="Leve">
                             <img src="imagens/leve.png" alt="">
                             <h1>Pet Leve</h1>
@@ -223,7 +234,7 @@
           const dataAniversario = new Date(document.getElementById('dataAniversario').value);
 
           if (dataAniversario.getDate()+1 === hoje.getDate() && dataAniversario.getMonth() === hoje.getMonth()) {
-            
+            alert('Feliz aniversário para seu pet!');
           } else {
             alert('Data de aniversário do seu pet foi salva.');
           }   
@@ -234,37 +245,48 @@
         niver.style.display = 'none';
         });
         
-
-        const fechar = document.getElementById('sair') 
-        const abrir = document.getElementById('btniver')
-        const formEfeito = document.getElementById('niver')
-        abrir.addEventListener('click', function() {
-        formEfeito.classList.add('mostrar');
-        });
-        fechar.addEventListener('click', function() {
-        formEfeito.classList.remove('mostrar');
-        });
-
-
         const servicos = document.getElementById('servico');
         const divsv = servicos.querySelectorAll('div');
-        divsv.forEach(botao => {
-            botao.addEventListener('mouseover', function() {
-                botao.classList.add('adc');
+        divsv.forEach(flutuante => {
+            flutuante.addEventListener('mouseover', function() {
+                flutuante.classList.add('adc');
             });
         });
-        divsv.forEach(botao => {
-            botao.addEventListener('mouseout', function() {
-                    botao.classList.remove('adc');
+        divsv.forEach(flutuante => {
+            flutuante.addEventListener('mouseout', function() {
+                    flutuante.classList.remove('adc');
             });
         });
 </script>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+    function setCookie(name, value, seconds) {
+        var date = new Date();
+        date.setTime(date.getTime() + (seconds * 1000));
+        document.cookie = name + "=" + (value) + "; expires=" + date.toUTCString() + "; path=/";
+    }
 
-    window.onload = function() {
-    window.alert(" Seja bem-vindo à Buchera's Vet! Estamos aqui para cuidar do seu pet da melhor forma possível.");
-};
+    function acharCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+    }
+
+    if (!acharCookie('msgbemvindo')) {
+            window.onload = function() {
+            document.getElementById("popup").style.display = "flex";
+            document.getElementById("popup").style.opacity = "1";
+            };
+        setCookie('msgbemvindo', 'true', 15);
+    }
+});
+            function fecharPopup() {
+                document.getElementById("popup").style.pointerEvents = "none";
+                document.getElementById("popup").style.opacity = "0";
+                document.getElementById("popup").style.transition = "1s";
+            }
+
+            
     const cookie = document.getElementById('cookie');
     const botao = document.getElementById('ok');
         botao.addEventListener ('click',function cookie () {
@@ -306,4 +328,21 @@
         });
 
         atualizar();
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.getElementById('dogBeneficios').classList.remove('fadeOut');
+                } else {
+                    document.getElementById('dogBeneficios').classList.add('fadeOut');
+                }
+            });
+        }, {
+            threshold: 0.6
+        });
+
+        observer.observe(document.getElementById('dog'));
+    });
 </script>

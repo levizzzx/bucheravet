@@ -22,13 +22,13 @@
                 Ou entre com seu E-mail e Senha:
             </p>
 
-            <form id="entrar" action="index.html">
+            <form method="get" id="entrar" action="index.html">
                 <label id="em" for="email">E-mail</label>
                 <i id="simemail" class="fas fa-envelope"></i>
-                <input type="email" placeholder="" id="email" oninput="lowerCase(), emailinp()" required>
-                <i id="simsenha" class="fas fa-lock"></i>
+                <input type="email" placeholder="" id="email" oninput="lowerCase(), emailinp()" required autocomplete="on">
+                <i id="loginsenha" class="fa-regular fa-eye"></i>
                 <label id="sen" for="senha">Senha</label>
-                <input type="password" placeholder="" id="senha" oninput="lowerCase(), senhainp()" required>
+                <input type="password" placeholder="" id="senha" oninput="lowerCase(), senhainp(), espacoSenhaLogin()" required>
                 <button type="submit">Entrar</button>
             </form>
             <p>
@@ -41,27 +41,27 @@
                 <h2>Bem-vindo de volta ao Buchera Vet</h2>
                 <p>Estamos felizes em tê-lo(a) de volta. Faça login para acessar sua conta, verificar os próximos agendamentos, acompanhar o histórico de atendimento dos seus pets e muito mais.</p>
             </div>
-            <form method="post" id="cadastro" action="index.html" name="cad">
+            <form method="get" id="cadastro" action="index.html" name="cad">
                 
                 <fieldset id="ap" class="sumir">
                     <h1>Cadastrar-se</h1>
                     <div id="cadastrar">
                         <article>
                             <i class="fas fa-user"></i>
-                            <label id="nomelabel" for="nome">Nome</label>
-                            <input id="nomein" type="text" placeholder="" name="nome" oninput="inpnome()" required>
+                            <label id="nomelabel" for="nomein">Nome</label>
+                            <input id="nomein" type="text" placeholder="" name="nome" oninput="inpnome(), checarNome()" required>
                         </article>
                         <article>   
                             <i class="fas fa-envelope"></i>                   
-                            <label id="emlabel" for="email">E-mail</label>
+                            <label id="emlabel" for="emin">E-mail</label>
                             
-                            <input id="emin" type="email" placeholder="" name="email" oninput="inpem()" required>
+                            <input id="emin" type="email" placeholder="" name="email" oninput="inpem()" required autocomplete="on">
                         </article>
                         <article>
-                            <i class="fas fa-lock"></i>
-                            <label id="senlabel" for="password">Senha</label>
+                            <i id="cadsenha" class="fa-regular fa-eye"></i>
+                            <label id="senlabel" for="senin">Senha</label>
                             
-                            <input id="senin" type="password" placeholder="" oninput="inpsenha()" required>
+                            <input id="senin" type="password" placeholder="" oninput="inpsenha(), espacoSenhaCadastro()" required>
                         </article>
                         
                         <div id="data">
@@ -99,7 +99,7 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
-                            <select form="cad" name="mes" id="mes">
+                            <select form="cad" name="mes" required id="mes">
                                 <option value="0" selected disabled>Mês</option>
                                 <option value="1">Janeiro</option>
                                 <option value="2">Fevereiro</option>
@@ -218,13 +218,13 @@
                         document.addEventListener('DOMContentLoaded', function() {
                             document.getElementById('cadastro').addEventListener('submit', function() {
                                 
-                         document.cookie = 'nome=' + encodeURIComponent(document.querySelector('input[name="nome"]').value);
-
+                                document.cookie = 'nome=' + encodeURIComponent(document.querySelector('input[name="nome"]').value);
                                 document.cookie = 'email=' + encodeURIComponent(document.querySelector('input[name="email"]').value);
-                                   document.cookie = 'dia=' + encodeURIComponent(document.querySelector('select[name="dia"]').value);
 
+                                document.cookie = 'dia=' + encodeURIComponent(document.querySelector('select[name="dia"]').value);
                                 document.cookie = 'mes=' + encodeURIComponent(document.querySelector('select[name="mes"]').value);
-                                    document.cookie = 'ano=' + encodeURIComponent(document.querySelector('select[name="ano"]').value);
+                                document.cookie = 'ano=' + encodeURIComponent(document.querySelector('select[name="ano"]').value);
+                                
                             });
                         });
                         </script>
@@ -233,17 +233,16 @@
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
                             function getCookie(name) {
-                                var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-                                              return match ? decodeURIComponent(match[2]) : '';
+                                var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+                                    return match ? decodeURIComponent(match[1]) : '';
                             }
                         
                             document.querySelector('input[name="nome"]').value = getCookie('nome');
                             document.querySelector('input[name="email"]').value = getCookie('email');
 
-                         document.querySelector('select[name="dia"]').value = getCookie('dia') || '0';
-                            document.querySelector('select[name="mes"]').value = getCookie('mes') || '0';
-
-                                   document.querySelector('select[name="ano"]').value = getCookie('ano') || '0';
+                            document.querySelector('select[name="dia"]').value = getCookie('dia');
+                            document.querySelector('select[name="mes"]').value = getCookie('mes');
+                            document.querySelector('select[name="ano"]').value = getCookie('ano');
                         });
                         </script>
                 </fieldset>
@@ -270,6 +269,7 @@
                             event.preventDefault();
                             alert('Por favor, insira um e-mail válido');
                         }
+            
         });
         });
                     function lowerCase() {
@@ -283,12 +283,12 @@
     const labelem = document.getElementById('em');
     const email = document.getElementById('email')
     const senha = document.getElementById('senha');
-    
+
                 function addsen() {
                     labelsen.classList.add('up')
                 }
                 senha.addEventListener('focus', addsen);
-                
+    
                 function remosen(){
                     labelsen.classList.remove('up')
                 }
@@ -307,12 +307,12 @@
                     labelem.classList.add('up')
                 };
                 email.addEventListener('focus', addem);
-
+                
                 function remoem() {
                     labelem.classList.remove('up')
                 }
                 email.addEventListener('blur', remoem);
-
+                
                 function emailinp() {
                     const valorem = email.value
                     if (valorem.trim() !== "") {
@@ -320,7 +320,6 @@
                     } else {
                         email.addEventListener('blur', remoem);
                     }};
-
 
                 const mudarcadastro = document.getElementById('mudarcad')
 
@@ -417,12 +416,8 @@
                     } else {
                         emin.addEventListener('blur', emremo);
                     }};
-                    
-                
 
-
-
-                    function nomeadd() {
+                function nomeadd() {
                     nomelabel.classList.add('sub')
                 };
                 nomein.addEventListener('focus', nomeadd);
@@ -438,22 +433,179 @@
                         nomein.removeEventListener('blur', nomeremo);
                     } else {
                         nomein.addEventListener('blur', nomeremo);
-                    }};
+                    }
+                };
 </script>
 
-<script>
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
         function getCookie(name) {
-            var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-                          return match ? decodeURIComponent(match[2]) : '';
+            var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+                return match ? decodeURIComponent(match[1]) : '';
         }
 
         document.querySelector('input[name="nome"]').value = getCookie('nome');
         document.querySelector('input[name="email"]').value = getCookie('email');
 
-     document.querySelector('select[name="dia"]').value = getCookie('dia') || '0';
-        document.querySelector('select[name="mes"]').value = getCookie('mes') || '0';
-
-               document.querySelector('select[name="ano"]').value = getCookie('ano') || '0';
+        document.querySelector('select[name="dia"]').value = getCookie('dia');
+        document.querySelector('select[name="mes"]').value = getCookie('mes');
+        document.querySelector('select[name="ano"]').value = getCookie('ano');
     });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function checarEmailLogin() {
+            var email = document.getElementById('email');
+            var emvalor = email.value;
+            var labelem = document.getElementById('em');
+
+            if (emvalor !== '') {
+                labelem.classList.add('up');
+            };
+        };
+        setInterval(checarEmailLogin, 1);
+
+        function checarNome() {
+            var nome = document.getElementById('nomein');
+            var nomevalor = nome.value;
+            var nomelabel = document.getElementById('nomelabel');
+            if (nomevalor !== '') {
+                nomelabel.classList.add('sub');
+            };
+        };
+        setInterval(checarNome, 1);
+
+        function checarEmail() {
+            var email = document.getElementById('emin');
+            var emvalor = email.value;
+            var emlabel = document.getElementById('emlabel');
+
+            if (emvalor !== '') {
+                emlabel.classList.add('sub');
+            };
+        };
+        setInterval(checarEmail, 1);
+
+    });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('cadastro');
+
+            form.addEventListener('submit', function(event) {
+                var dia = form.querySelector('select[id="dia"]');
+                var mes = form.querySelector('select[id="mes"]');
+                var ano = form.querySelector('select[id="ano"]');
+                
+                if (dia.value < 1 || mes.value < 1 || ano.value < 1) {
+                    event.preventDefault();
+
+                    if (dia.value < 1) {
+                        dia.classList.add('incorreto')
+                    } else {
+                        dia.classList.remove('incorreto')
+                    };
+                    
+                    if (mes.value < 1) {
+                        mes.classList.add('incorreto');
+                    } else {
+                        mes.classList.remove('incorreto')
+                    };
+
+                    if (ano.value < 1) {
+                        ano.classList.add('incorreto');
+                    } else {
+                        ano.classList.remove('incorreto')
+                    };
+                };
+
+                function minimoSenha() {
+
+                    var x = document.getElementById("nomein");
+                    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%¨&*?+-])$/
+
+                    var test = regex.test(x);
+
+                    if (test === false) {
+                        event.preventDefault();
+                        
+                    }
+
+
+
+                };
+
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var olhoLogin = document.getElementById('loginsenha');
+            var olhoCad = document.getElementById('cadsenha');
+            
+            var tipoLogin = document.getElementById('senha').getAttribute('type');
+            var tipoCad = document.getElementById('senin').getAttribute('type');
+
+            olhoLogin.addEventListener('click', function () {
+                olhoLogin.classList.toggle('fa-regular');
+                olhoLogin.classList.toggle('fa-eye');
+                olhoLogin.classList.toggle('fa-solid');
+                olhoLogin.classList.toggle('fa-eye-slash');
+
+                if (tipoLogin === 'password') {
+                    tipoLogin = 'text';
+                } else {
+                    tipoLogin = 'password';
+                };
+
+                document.getElementById('senha').setAttribute('type', tipoLogin);
+
+            });
+
+            olhoCad.addEventListener('click', function () {
+                olhoCad.classList.toggle('fa-regular');
+                olhoCad.classList.toggle('fa-eye');
+                olhoCad.classList.toggle('fa-solid');
+                olhoCad.classList.toggle('fa-eye-slash');
+
+                if (tipoCad === 'password') {
+                    tipoCad = 'text';
+                } else {
+                    tipoCad = 'password';
+                };
+
+                document.getElementById('senin').setAttribute('type', tipoCad);
+
+            });
+
+        });
+    </script>
+
+    <script>       
+
+        function espacoSenhaLogin() {
+
+            const x = document.getElementById("senha");
+            x.value = x.value.replace(/[^a-zA-Z0-9!@#$%¨&*?+<>\-]/g, '');
+                
+        };
+
+        function espacoSenhaCadastro() {
+
+            const x = document.getElementById("senin");
+            x.value = x.value.replace(/[^a-zA-Z0-9!@#$%¨&*?+<>\-]/g, '');
+
+        };
+
+        function checarNome() {
+
+            const x = document.getElementById("nomein");
+            x.value = x.value.replace(/[^a-zA-ZÀ-ÿ\s'-]/g, '');
+
+        };
+
     </script>

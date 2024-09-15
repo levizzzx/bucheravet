@@ -1,3 +1,62 @@
+#popup {
+    display: none; /* Inicialmente escondida */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: 1s;
+    opacity: 0;
+}
+
+.popup-content {
+    background-color: rgb(226, 221, 221);
+    padding: 1vw 0.1vw;
+    border-radius: 1vw;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 30vw;
+    height: 23vw;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+.popup-content button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1vw 2vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    width: 7vw;
+    margin-top: 1.5vw;
+}
+
+.popup-content button:hover {
+    background-color: #45a049;
+}
+.popup-content p {
+    color: rgb(95, 52, 173);
+}
+#bemv{
+    width: 10vw;    
+}
+#coelho {
+    position: absolute;
+    width: 15vw;
+    left: -11.4vw;
+}
+#alinhamento {
+    position: relative;
+}
 html {
     scroll-behavior: smooth;
 }
@@ -217,7 +276,7 @@ a {
     background-size: 100%;
     position: relative;
 }
-#planos div article {
+#planos div #dogBeneficios {
     position: absolute;
     top: 5vw;
     margin-left: 3vw;
@@ -226,6 +285,7 @@ a {
     background-color: white;
     width: 56vw;
     height: 40vw;
+    transition: 1s;
 }
 #topo{
     padding: 1vw 0 0 2.4vw;
@@ -311,6 +371,7 @@ div aside {
     flex-direction: column;
     justify-content: center;
     transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+    pointer-events: auto;
 }
 div aside.ativar {
     transform: scale(0.6);
@@ -508,7 +569,7 @@ footer .logotipo, #copy {
     pointer-events: none;
 }
 
-button {
+.carrossel button {
     background: none;
     border: none;
     font-size: 4vw;
@@ -521,6 +582,12 @@ button {
     align-items: center;
     justify-content: center;
     position: relative;
+}
+.fadeOut {
+    translate: 0 -200px;
+    scale: 0%;
+    transition: 2s;
+    opacity: 0;
 }
 @media screen and (max-width: 700px) {
     footer .logotipo, #copy {

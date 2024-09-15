@@ -141,7 +141,7 @@ button {
 #simemail {
     translate: 8vw 2vw;
 }
-#simsenha {
+#loginsenha {
     translate: 8vw 3.6vw;
 }
 #logo {
@@ -195,7 +195,7 @@ button {
     translate: -4vw -3.5vw;
 }
 #cadastro {
-    translate: 10vw 3vw;
+    translate: 10vw 2vw;
 }
 #data {
     width: 100%;
@@ -271,4 +271,16 @@ article {
 #cadastro fieldset.sumir {
     opacity: 0;
     transform: translate(100%, 2%);
+}
+
+#login img:hover {
+    cursor: pointer;
+}
+
+.incorreto {
+    border-color: red;
+}
+
+#loginsenha:hover, #cadsenha:hover {
+    cursor: pointer;
 }
