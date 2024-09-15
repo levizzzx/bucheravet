@@ -24,6 +24,9 @@
             <div id="login">
                 <a href="login.html">Login</a>
             </div>
+            <div id="fazerconsulta">
+                <a href="consulta.html">Marque sua consulta</a>
+            </div>
         </header>
         <div id="cookie">
             <h2>
@@ -102,35 +105,39 @@
                     <h2><strong>Seu pet protegido sempre:</strong> mesmo preço e cobertura, independente da raça ou idade</h2>
                     <h2><strong>Precisou, usou:</strong> sem necessidade de autorização ou burocracia para utilizar</h2>
                 </div>
-                <div id="tipos">
-                    <aside id="Leve">
-                        <img src="imagens/leve.png" alt="">
-                        <h1>Pet Leve</h1>
-                        <img src="imagens/l.png" alt="">
-                        <h1>R$20,00 /mês</h1>
-                        <a href="cadastro.html" class="button"><span>Contratar Plano Leve</span></a>
-                    </aside>
-                    <aside id="Tranquilo">
-                        <img src="imagens/tranquilo.png" alt="">
-                        <h1>Pet Tranquilo</h1>
-                        <img src="imagens/t.png" alt="">
-                        <h1>R$40,00 /mês</h1>                       
-                        <a href="cadastro.html" class="button"><span>Contratar Plano Tranquilo</span></a>
-                    </aside>
-                    <aside id="Ideal">
-                        <img src="imagens/ideal.png" alt="">
-                        <h1>Pet Ideal</h1>
-                        <img src="imagens/i.png" alt="">
-                        <h1>R$100,00 /mês</h1>                        
-                        <a href="cadastro.html" class="button"><span>Contratar Plano Ideal</span></a>
-                    </aside>
-                    <aside id="Essencial">
-                        <img src="imagens/essencial.png" alt="">
-                        <h1>Pet Essencial</h1>
-                        <img src="imagens/e.png" alt="">
-                        <h1>R$160,00 /mês</h1>
-                        <a href="cadastro.html " class="button"><span>Contratar Essencial</span></a>
-                    </aside>
+                <div class="carrossel">
+                    <button class="anterior">❮</button>
+                    <div id="tipos"> aside
+                        <aside id="Leve">
+                            <img src="imagens/leve.png" alt="">
+                            <h1>Pet Leve</h1>
+                            <img src="imagens/l.png" alt="">
+                            <h1>R$20,00 /mês</h1>
+                            <a href="login.html" class="button"><span>Contratar Plano Leve</span></a>
+                        </aside>
+                        <aside id="Tranquilo">
+                            <img src="imagens/tranquilo.png" alt="">
+                            <h1>Pet Tranquilo</h1>
+                            <img src="imagens/t.png" alt="">
+                            <h1>R$40,00 /mês</h1>                       
+                            <a href="login.html" class="button"><span>Contratar Plano Tranquilo</span></a>
+                        </aside>
+                        <aside id="Ideal">
+                            <img src="imagens/ideal.png" alt="">
+                            <h1>Pet Ideal</h1>
+                            <img src="imagens/i.png" alt="">
+                            <h1>R$100,00 /mês</h1>                        
+                            <a href="login.html" class="button"><span>Contratar Plano Ideal</span></a>
+                        </aside>
+                        <aside id="Essencial">
+                            <img src="imagens/essencial.png" alt="">
+                            <h1>Pet Essencial</h1>
+                            <img src="imagens/e.png" alt="">
+                            <h1>R$160,00 /mês</h1>
+                            <a href="login.html " class="button"><span>Contratar Essencial</span></a>
+                        </aside>
+                    </div>
+                    <button class="proximo">❯</button>
                 </div>
             </article>
         </section>
@@ -158,7 +165,6 @@
         <div id="inserirdata">
             <button onclick="aparecer()" id="btniver" type="submit">Clique aqui.</button>
         </div>
-        <p id="mensagemAniversario"></p>
         <footer>
             <div id="rodape">
                 <a href="index.html" class="logotipo">
@@ -177,7 +183,7 @@
     var banners = [
         'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("imagens/fundodog.jpg")',
         'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("imagens/fundocat.jpg")'
-    ];
+    ];  
     
     var bannerAtual = 0;
     function trocaBanner(){
@@ -202,14 +208,13 @@
     }
     function confirmarsaida() {
             let resposta = confirm("Sua data pode não ter sido salva! Deseja sair?");
-            if (resposta) {
+            if (resposta === true) {
                 niver.style.display = 'none';
             }
         }
     document.getElementById('sair').addEventListener('click', confirmarsaida);
 
         const form = document.getElementById('formAniversario');
-        const mensagemAniversario = document.getElementById('mensagemAniversario');
       
         form.addEventListener('submit', function(event) {
           event.preventDefault();
@@ -218,9 +223,9 @@
           const dataAniversario = new Date(document.getElementById('dataAniversario').value);
 
           if (dataAniversario.getDate()+1 === hoje.getDate() && dataAniversario.getMonth() === hoje.getMonth()) {
-            mensagemAniversario.textContent = 'Feliz Aniversário para seu pet!';
+            
           } else {
-            mensagemAniversario.textContent = 'Data de aniversário do seu pet foi salva.';
+            alert('Data de aniversário do seu pet foi salva.');
           }   
           document.getElementById('sair').removeEventListener('click', confirmarsaida);
           document.getElementById('sair').addEventListener('click', function saida() {
@@ -250,7 +255,7 @@
         });
         divsv.forEach(botao => {
             botao.addEventListener('mouseout', function() {
-                botao.classList.remove('adc');
+                    botao.classList.remove('adc');
             });
         });
 </script>
@@ -260,16 +265,45 @@
     window.onload = function() {
     window.alert(" Seja bem-vindo à Buchera's Vet! Estamos aqui para cuidar do seu pet da melhor forma possível.");
 };
+    const cookie = document.getElementById('cookie');
     const botao = document.getElementById('ok');
-        botao.addEventListener ('click',function cookie (){
+        botao.addEventListener ('click',function cookie () {
             const cookie = document.getElementById('cookie');
             cookie.style.opacity = 0;
-        }
-        
-)
+            cookie.style.pointerEvents = 'none';
+        });
         function surgir() {
-            const cookie = document.getElementById('cookie');
+            cookie.style.pointerEvents = 'auto';
             cookie.style.opacity = 1;
         }
         document.addEventListener('DOMContentLoaded', surgir())
+
+
+
+
+        const botanterior = document.querySelector('.anterior');
+        const botproximo = document.querySelector('.proximo');
+        const items = document.querySelectorAll('aside');
+        let atualindex = 0;
+
+        function atualizar() {
+        items.forEach((item, index) => {
+            item.classList.add('ativar');
+            if (index === atualindex) {
+            item.classList.remove('ativar');
+            }
+        });
+        }
+
+        botanterior.addEventListener('click', () => {
+        atualindex = (atualindex > 0) ? atualindex - 1 : items.length - 1;
+        atualizar();
+        });
+
+        botproximo.addEventListener('click', () => {
+        atualindex = (atualindex < items.length - 1) ? atualindex + 1 : 0;
+        atualizar();
+        });
+
+        atualizar();
 </script>

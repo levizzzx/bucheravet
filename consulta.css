@@ -2,54 +2,58 @@
     color: black;
     text-decoration: none;
     font-family: cursive;
-    font-size: 20px;
-    margin-left: 4vw;
-}
-
-.botao {
-    background-color: purple;
-}
-
-#logo {
+    font-size: 1.5vw; 
+    position: absolute;
+    top: 50%;
     display: block;
-    margin: auto;
+    transform: translate(1vw, -50%);
 }
 header {
-    padding: 15px;
+    position: relative;
+    height: 7vw;
     background-color: #ffffff;
-    box-shadow: 0 0 20px 0px black;;
+    box-shadow: 0 0 1vw 0 black;;
+}
+#logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15vw;
 }
 body {
+    background-image: url(/imagens/fundoroxo.png);
+    width: 100%;
+    height: 100%;
+    background-size: 60%;
     margin: 0;
-    background-color: rgb(248, 246, 246);
 }
-
-#links {
-    margin-left: 30px;
-    position: absolute;
-    top: 27px;
-    font-size: 20px;
-}
-
 #consulta {
-
-    background-color: lightgrey;
-    width: 29vw;
-    height: 24vw;
-    border-radius: 3vw;
+    background-color: rgb(95, 52, 173);
+    width: 33vw;
+    height: 29vw;
+    border-radius: 1vw;
     text-align: center;
     font-size: 2vw;
     align-items: center;
     margin: 0 auto; 
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-
+.consulta {
+    position: relative;
+    width: 100%;
+    height: 40vw;
+}
 input {
-    border-radius: 0.3vw;
-    height: 2.3vw;
+    border-radius: 0.5vw;
+    height: 2vw;
     border: none;
-    font-size: 0.8vw;
-    width: 10vw;
+    font-size: 1.3vw;
+    width: 14vw;
+    margin-bottom: 1vw;
 }
 
 fieldset {
@@ -59,12 +63,13 @@ fieldset {
 }
 
 button {
-    padding: 10px;
+    margin-top: 1vw;
+    padding: 1vw;
     color: white;
     background-color: blue;
     border: none;
-    border-radius: 10px;
-    font-size: 16px;
+    border-radius: 1vw;
+    font-size: 1.5vw;
     cursor: pointer;
     width: 80%;
     transition: 1s;
@@ -77,8 +82,8 @@ button:hover, button:focus {
 
 #data select {
     width: 8vw;
-    height: 2.4vw;
-    font-size: 1vw;
+    height: 3vw;
+    font-size: 1.5vw;
     border-radius: 0.3vw;
     border: none;
 }
@@ -86,13 +91,14 @@ button:hover, button:focus {
 h3 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5vw;
+    color: white;
 }
 
 select {
-
     width: 20.9vw;
-    height: 1.4vw;
-    font-size: 0.8vw;
+    height: 2vw;
+    font-size: 1.5vw;
     border-radius: 0.3vw;
     border: none;
+    margin-bottom: 1vw;
 }

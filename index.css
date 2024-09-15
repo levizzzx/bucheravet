@@ -57,12 +57,26 @@ a {
     color: white;
     right: 5%;
     padding: 0.4% 1% 0.6% 1%;
-    border-radius: 10%;
+    border-radius: 1vw;
     background-color: rgb(76, 0, 109);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+#fazerconsulta {
+    position: absolute;
+    top: 30%;
+    color: white;
+    right: 15%;
+    padding: 0.4% 0 0.6% 0;
+    border-radius: 1vw;
+    background-color: rgb(12, 240, 12);
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 #login a {
     color: white;
+    margin: 2vw;
+}
+#fazerconsulta a {
+    color: black;
     margin: 2vw;
 }
 #banner {
@@ -285,6 +299,7 @@ p#pct {
     font: medium;
 }
 div aside {
+    margin: 0 15px;
     margin-top: 6vw;
     width: 20vw;
     height: 38vw;
@@ -295,11 +310,15 @@ div aside {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+}
+div aside.ativar {
+    transform: scale(0.6);
+    pointer-events: none;
 }
 #tipos {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    transition: transform 0.5s ease;
 }
 aside h1 {
     color: rgb(84, 6, 136);
@@ -460,6 +479,7 @@ footer .logotipo, #copy {
     padding: 2vw;
     transition: 1s;
     opacity: 0;
+    pointer-events: none;
 }
 #cookie h2{
     font-size: 2vw;
@@ -486,6 +506,21 @@ footer .logotipo, #copy {
 }
 #span {
     pointer-events: none;
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: 4vw;
+    cursor: pointer;
+    z-index: 1000;
+    color: white;
+  }
+.carrossel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 @media screen and (max-width: 700px) {
     footer .logotipo, #copy {
