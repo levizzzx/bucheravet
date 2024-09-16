@@ -1,7 +1,7 @@
 body{
     margin: 0;
     width: 100%;
-    height: 40vw;
+    height: 100%;
 }
 header {
     background-color: white;
@@ -203,4 +203,148 @@ ul button {
 #produtooutros {
     height: 20vw;
 }
-
+#assinatura {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    height: 4vw;
+    font-size: 1.2vw;
+    font-weight: 530;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#assinatura p {
+    font-size: 0.9vw;
+    margin-left: 1vw;
+}
+#tudopdog #titulo {
+    font-family: cursive;
+    font-size: 1.7vw;
+    margin-left: 2.5vw;
+}
+#pdogs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
+    align-items: center;
+}
+#pdogs div {
+    margin: 0.9vw;
+}
+#proximo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.8vw;
+    height: 3.8vw;
+    font-size: 1.5vw;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 0.1vw solid black;
+    cursor:grab;
+    margin: 0;
+}
+#proximo p {
+    margin: 0;
+    user-select: none;
+}
+#anterior p {
+    margin: 0;
+    user-select: none;
+}
+#anterior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.8vw;
+    height: 3.8vw;
+    font-size: 1.5vw;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 0.1vw solid black;
+    cursor:grab;
+    margin: 0;
+}
+#tudopcat #titulo {
+    font-family: cursive;
+    font-size: 1.7vw;
+    margin-left: 2.5vw;
+    margin-top: 5vw;
+}
+#pcats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    user-select: none;
+    align-items: center;
+}
+#pcats article {
+    margin: 0.9vw;
+}
+article {
+    transition: 1s;
+}
+#prox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.8vw;
+    height: 3.8vw;
+    font-size: 1.5vw;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 0.1vw solid black;
+    cursor:grab;
+}
+#prox p {
+    margin: 0;
+    user-select: none;
+}
+#ant p {
+    margin: 0;
+    user-select: none;
+}
+#ant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.8vw;
+    height: 3.8vw;
+    font-size: 1.5vw;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 0.1vw solid black;
+    cursor:grab;
+}
+#pdogs div{
+    transition: 1s;
+}
+footer {
+    background-color: rgb(95, 52, 173);
+    width: 100%;
+    position: absolute;
+    padding: 2vw 0 2vw 0;
+}
+footer .logotipo, #copy {
+    width: 17vw;
+    margin: 0;
+}
+#copy {
+    color: white;
+    position: relative;
+}
+#rodape {
+    font-size: 1.3vw;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
