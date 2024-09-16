@@ -9,6 +9,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
+        <div id="navigator">
+            <h2>Para um melhor experiência, nós identificamos algumas informações:</h2>
+            <p class="sisop" id="nav"></p>
+            <p class="navegador" id="nav"></p>
+            <button onclick="fecharInf()">OK</button>
+        </div>
         <div id="popup">
             <div id="alinhamento">
                 <img src="/imagens/coelhobem.png" id="coelho" alt="coelho">
@@ -376,4 +382,35 @@ document.addEventListener('DOMContentLoaded', function() {
     function produtos() {
         window.location.href = 'produtos.html';
     };
+
+    const popnav = document.getElementById('navigator')
+    const butt = popnav.querySelector('button')
+
+    butt.addEventListener('click', function() {
+        popnav.style.opacity = 0;
+        popnav.style.transition = '1s';
+        popnav.style.pointerEvents = 'none';
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const nvgd = navigator.userAgent;
+        const sisop = navigator.platform;
+
+        if(nvgd.includes('Chrome')) {
+            document.querySelector('.navegador').innerHTML  = 'O navegador em uso é o: Google Chrome'
+        } else if(nvgd.includes('Microsoft')) {
+            document.querySelector('.navegador').innerHTML = 'O navegador em uso é o: Microsoft Edge'
+        } else if(nvgd.includes('Opera')) {
+            document.querySelector('.navegador').innerHTML = 'O navegador em uso é o: Opera'
+        } 
+
+        if(sisop.includes('Mac')) {
+            document.querySelector('.sisop').innerHTML  = 'O seu sistema operacional é: Mac'
+        } else if(sisop.includes('Win32')) {
+            document.querySelector('.sisop').innerHTML  = 'O seu sistema operacional é: Windows'
+        } else if(sisop.includes('Linux')) {
+            document.querySelector('.sisop').innerHTML  = 'O seu sistema operacional é: Linux'
+        }
+        
+    })
 </script>
