@@ -552,9 +552,21 @@ footer .logotipo, #copy {
     margin: 0;
     
 }
+
 #cookie p{
     font-size: 1vw;
+    font: 1.1sem times new roman;
 }
+
+#politica {
+        font-size: 1vw;
+        font: 1em times new roman;
+        color: lightskyblue;
+        display: inline;
+        margin: 0;
+}
+
+
 #cookie div{
     width: 5vw;
     height: 4vw;
