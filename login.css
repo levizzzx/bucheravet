@@ -72,6 +72,7 @@ input[type="text"], input[type="password"], input[type="email"] {
     top: 50%;
     display: block;
     transform: translate(1vw, -50%);
+    cursor: pointer;
 }
 
 
@@ -150,6 +151,7 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 15vw;
+    cursor: pointer;
 }
 #login.sumir {
     opacity: 0;

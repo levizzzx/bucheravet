@@ -9,9 +9,8 @@
     </head>
     <body>
         <header>
-            
-            <a href="index.html" id="voltar">Voltar</a>
-            <img src="imagens/logotipo.png" id="logo" alt="logotipo">
+            <a onclick="voltar()" id="voltar">Voltar</a>
+            <img onclick="main()" src="imagens/logotipo.png" id="logo" alt="logotipo">
         </header>
         <div class="login">
             <div id="login">
@@ -608,4 +607,13 @@
 
         };
 
+    </script>
+
+    <script>
+        function voltar() {
+            history.go(-1);
+        }
+        function main() {
+            window.location.href = 'index.html';
+        }
     </script>

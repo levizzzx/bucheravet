@@ -4,8 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Início | Buchera Vet </title>
-        <link rel="stylesheet" href="index.css">
+        <link id="estilo" rel="stylesheet" href="index.css">
         <link rel="icon" type="image/png" href="imagens/icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
         <div id="popup">
@@ -21,7 +22,7 @@
         </div>
         <header>
             <a href="index.html" class="logotipo">
-                <img src="imagens/logotipo.png" alt="logotipo">
+                <img src="imagens/logotipo.png" alt="logotipo" class="logo" id="logo1">
             </a>
             <div id="links">
                 
@@ -38,6 +39,8 @@
             <div id="fazerconsulta">
                 <a href="consulta.html">Marque sua consulta</a>
             </div>
+            <i id="tema" onclick="trocarTema()" class="fa-solid fa-circle-half-stroke fa-rotate-180 temaCor"></i>
+            <i id="produtos" class="fa-solid fa-cart-shopping" onclick="produtos()"></i>
         </header>
         <div id="cookie">
             <h2>
@@ -106,7 +109,7 @@
                     <p id="mid">Conheça os benefícios do plano de saúde da Buchera Vet e comece a proteger seu pet agora mesmo</p>
                     <p id="beneficios">&#10022; Sem variação de preço, cobertura e carência por raça, tamanho, idade e condições prévias de saúde</p>
                     <p id="beneficios">&#10022; Quanto mais pets você incluir no plano, maiores os descontos na mensalidade</p>
-                    <p id="pct">&#10022; De 15% a 25% de desconto e frete grátis em compras na Petlove</p>
+                    <p id="pct">&#10022; De 15% a 25% de desconto e frete grátis em compras na Buchera Vet</p>
                     <a href="cadastro.html" id="bt" class="button"><span>&#8702;Contratar Plano de Saúde Pet</span></a>
                 </article>
             </div>
@@ -179,7 +182,7 @@
         <footer>
             <div id="rodape">
                 <a href="index.html" class="logotipo">
-                    <img src="imagens/logotipo.png" alt="logotipo">
+                    <img class="logo" src="imagens/logotipo.png" alt="logotipo" id="logo2">
                 </a>
                 <div id="copy">
                     <span>&copy; Todos os direitos reservados</span>
@@ -277,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById("popup").style.display = "flex";
             document.getElementById("popup").style.opacity = "1";
             };
-        setCookie('msgbemvindo', 'true', 15);
+        setCookie('msgbemvindo', 'true', 1);
     }
 });
             function fecharPopup() {
@@ -345,4 +348,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
         observer.observe(document.getElementById('dog'));
     });
+</script>
+
+<script>
+    const estilo = document.getElementById('estilo');
+    const tema = document.getElementById('tema');
+    function trocarTema() {
+        tema.classList.toggle('fa-rotate-180');
+        const logo1 = document.getElementById('logo1');
+        const logo2 = document.getElementById('logo2');
+
+        var arquivo = estilo.getAttribute('href');
+        if (arquivo === 'index.css') {
+            estilo.setAttribute('href', 'escuro.css');
+            logo1.setAttribute('src', "/imagens/logotipodark.png");
+            logo2.setAttribute('src', "/imagens/logotipodark.png");
+        } else {
+            estilo.setAttribute('href', 'index.css');
+            logo1.setAttribute('src', "/imagens/logotipo.png");
+            logo2.setAttribute('src', "/imagens/logotipo.png");
+        }
+        
+    }
+</script>
+
+<script>
+    function checarTema(val) {
+        document.cookie = 'tema=' + encodeURIComponent(estilo.getAttribute('href'));
+    }
+    setInterval(() => {
+        checarTema();
+    }, 1000);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        function getCookie(name) {
+            var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+                return match ? decodeURIComponent(match[1]) : '';
+        }
+        
+        estilo.setAttribute('href', getCookie('tema'));
+    });
+    </script>
+
+<script>
+    function produtos() {
+        window.location.href = 'produtos.html';
+    };
 </script>
