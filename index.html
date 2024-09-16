@@ -47,7 +47,7 @@
                 Cookies.
             </h2>
             <p>
-                Este site utiliza cookies para te proporcionar uma melhor esperiência. Ao continuar navegando, você aceita nossa Política de Privacidade
+                Este site utiliza cookies para te proporcionar uma melhor esperiência. Ao continuar navegando, você aceita nossa <a id="politica" href="politica.html" >Política de Privacidade</a>
             </p>
             <div id="ok">
                 <span>
@@ -361,34 +361,16 @@ document.addEventListener('DOMContentLoaded', function() {
         var arquivo = estilo.getAttribute('href');
         if (arquivo === 'index.css') {
             estilo.setAttribute('href', 'escuro.css');
-            logo1.setAttribute('src', "/imagens/logotipodark.png");
-            logo2.setAttribute('src', "/imagens/logotipodark.png");
+            logo1.setAttribute('src', "../imagens/logotipodark.png");
+            logo2.setAttribute('src', "../imagens/logotipodark.png");
         } else {
             estilo.setAttribute('href', 'index.css');
-            logo1.setAttribute('src', "/imagens/logotipo.png");
-            logo2.setAttribute('src', "/imagens/logotipo.png");
+            logo1.setAttribute('src', "../imagens/logotipo.png");
+            logo2.setAttribute('src', "../imagens/logotipo.png");
         }
         
     }
 </script>
-
-<script>
-    function checarTema(val) {
-        document.cookie = 'tema=' + encodeURIComponent(estilo.getAttribute('href'));
-    }
-    setInterval(() => {
-        checarTema();
-    }, 1000);
-
-    document.addEventListener('DOMContentLoaded', function() {
-        function getCookie(name) {
-            var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
-                return match ? decodeURIComponent(match[1]) : '';
-        }
-        
-        estilo.setAttribute('href', getCookie('tema'));
-    });
-    </script>
 
 <script>
     function produtos() {
