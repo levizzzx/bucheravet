@@ -1,416 +1,436 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
     <head>
+
         <meta charset="UTF-8" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Início | Buchera Vet </title>
-        <link id="estilo" rel="stylesheet" href="index.css">
-        <link rel="icon" type="image/png" href="imagens/icon.png">
+
+        <link id="estilo" rel="stylesheet" href="css/index.css">
+
+        <link rel="icon" type="image/png" href="/imagens/icon.png">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     </head>
+
     <body>
+
         <div id="navigator">
+
             <h2>Para um melhor experiência, nós identificamos algumas informações:</h2>
-            <p class="sisop" id="nav"></p>
-            <p class="navegador" id="nav"></p>
-            <button onclick="fecharInf()">OK</button>
+
+            <p class="sistemaOperacional" id="nav"></p>
+
+            <p class="navegador" id="navegador"></p>
+
+            <button>OK</button>
+
         </div>
-        <div id="popup">
+
+        <div id="popup" style="display: none; opacity: 0;">
+
             <div id="alinhamento">
+
                 <img src="/imagens/coelhobem.png" id="coelho" alt="coelho">
-            <div class="popup-content">
-                <h2>Bem-vindo ao Buchera Vet!</h2>
-                <img src="/imagens/bemvindo.png" id="bemv" alt="bemvindo">
-                <p>Cuidando do seu pet com carinho.</p>
-                <button onclick="fecharPopup()">OK</button>
+
+                <div class="popup-content">
+
+                    <h2>Bem-vindo ao Buchera Vet!</h2>
+
+                    <img src="/imagens/bemvindo.png" id="bemv" alt="bemvindo">
+
+                    <p>Cuidando do seu pet com carinho.</p>
+
+                    <button onclick="fecharPopup()">OK</button>
+
+                </div>
+
             </div>
-            </div>
+
         </div>
+
         <header>
-            <a href="index.html" class="logotipo">
-                <img src="imagens/logotipo.png" alt="logotipo" class="logo" id="logo1">
+
+            <a href="#" class="logotipo">
+
+                <img src="/imagens/logotipo.png" alt="logotipo" class="logo" id="logo1">
+
             </a>
+
             <div id="links">
                 
                 <a href="#servico" id="linkservico">Serviço</a>
                                 
-                <a href="#bt" id="linkplano">Planos</a>
+                <a href="#precos" id="linkplano">Planos</a>
                                 
                 <a href="#titsobre" id="linksobre">Sobre nós</a>
                 
             </div>
+
             <div id="login">
+
                 <a href="login.html">Login</a>
+
             </div>
+
             <div id="fazerconsulta">
-                <a href="consulta.html">Marque sua consulta</a>
+
+                <a href="#" onclick="checarConsulta('logado')">Marque sua consulta</a>
+
             </div>
+
+            <i id="usuario" onclick="irUsuario()" class="fa-solid fa-circle-user"></i>
+
             <i id="tema" onclick="trocarTema()" class="fa-solid fa-circle-half-stroke fa-rotate-180 temaCor"></i>
-            <i id="produtos" class="fa-solid fa-cart-shopping" onclick="produtos()"></i>
+
+            <i id="produtos" class="fa-solid fa-cart-shopping" onclick="checarProdutos('logado')"></i>
+
         </header>
-        <div id="cookie">
-            <h2>
-                Cookies.
-            </h2>
-            <p>
-                Este site utiliza cookies para te proporcionar uma melhor esperiência. Ao continuar navegando, você aceita nossa <a id="politica" href="politica.html" >Política de Privacidade</a>
-            </p>
-            <div id="ok">
-                <span>
-                    OK
-                </span>
-            </div>
-        </div>
-        
-        <div id="servicos">
-            <div id="ns">
-                <h3>__________ Nossos serviços __________</h3>
-                <h1>Oferecemos diversos serviços com profissionais altamente qualificados.</h1>
-                <p>Tudo o que você espera de um atendimento veterinário de qualidade, em um só lugar. Cada espaço foi totalmente planejado e equipado para oferecer à você e ao seu animal, a melhor experiência possível! </p>
-                <p>Consultas, internações, cirurgias, vacinas, exames laboratoriais e de imagem, especialidades veterinárias, animais silvestres e muito mais!</p>
-            </div>
-            <div>
-                <button class="setas" onclick="trocaBanner()" onmouseover="parar()" onmouseout="continuar()" id="left"> < </button>
-                <section id="servico">
-                    <div id="consulta">
-                        <img src="imagens/11.png">
-                        <h2>Consultas</h2>
-                        <p>Temos plantões veterinários 24 horas por dia, estamos sempre prontos para atender o seu animal de estimação.</p>
-                    </div>
-                    <div id="internacao">
-                        <img src="imagens/22.png">
-                        <h2>Internações</h2>
-                        <p>Nossas internações são separadas para cães e gatos, as baias são espaçosas e individualizadas, para garantir o conforto e recuperação de seu pet.</p>
-                    </div>
-                    <div id="vacina">
-                        <img src="imagens/33.png">
-                        <h2>Vacinas</h2>
-                        <p>Oferecemos diversos tipos de vacinas importadas para o seu pet!</p>
-                    </div>
-                    <div id="exame">
-                        <img src="imagens/4.png">
-                        <h2>Exames</h2>
-                        <p>Contamos com profissionais altamente qualificados para a realização de exames laboratoriais e de imagem.</p>
-                    </div>
-                    <div id="castracao">
-                        <img src="imagens/5.png">
-                        <h2>Castração</h2>
-                        <p>Nossas cirurgias de castração são 100% monitoradas por um Médico Veterinário Anestesista, garantindo a o bem-estar do seu animal de estimação.</p>
-                    </div>
-                    <div id="banhoetosa">
-                        <img src="imagens/6.png">
-                        <h2>Banho e Tosa</h2>
-                        <p>Nosso banho e tosa conta com profissionais altamente qualificados e produtos premium, visando o bem-estar do seu pet.</p>
-                    </div>
-                </section>
-            </div>
-            <button class="setas" onclick="trocaBanner()" onmouseover="parar()" onmouseout="continuar()" id="right"> > </button>
-        </div>
-        <section id="planos">
-            <img src="imagens/banner.png" id="banner" alt="Banner">
-            <div id="dog">
-                <article id="dogBeneficios" class="fadeOut"> 
-                    <p id="topo">planos de saúde</p>
-                    <p id="tit">Uma vida mais longa e saudável para o seu pet</p>  
-                    <p id="mid">Conheça os benefícios do plano de saúde da Buchera Vet e comece a proteger seu pet agora mesmo</p>
-                    <p id="beneficios">&#10022; Sem variação de preço, cobertura e carência por raça, tamanho, idade e condições prévias de saúde</p>
-                    <p id="beneficios">&#10022; Quanto mais pets você incluir no plano, maiores os descontos na mensalidade</p>
-                    <p id="pct">&#10022; De 15% a 25% de desconto e frete grátis em compras na Buchera Vet</p>
-                    <a href="login.html" id="bt" class="button"><span>&#8702;Contratar Plano de Saúde Pet</span></a>
-                </article>
-            </div>
-            <article id="precos">         
-                <div id="descplanos">         
-                    <h1 id="c">Planos para todo pet e para todos os momentos</h1>
-                    <h2><strong>Seu pet protegido sempre:</strong> mesmo preço e cobertura, independente da raça ou idade</h2>
-                    <h2><strong>Precisou, usou:</strong> sem necessidade de autorização ou burocracia para utilizar</h2>
+
+        <main>
+
+            <div id="cookie">
+
+                <h2>
+
+                    Cookies.
+
+                </h2>
+
+                <p>
+                    
+                    Este site utiliza cookies para te proporcionar uma melhor experiência. Ao continuar navegando, você aceita nossa <a id="politica" href="politica.html" >Política de Privacidade</a>
+                
+                </p>
+
+                <div id="ok">
+
+                    <span>
+
+                        OK
+
+                    </span>
+
                 </div>
-                <div class="carrossel">
-                    <button class="anterior">❮</button>
-                    <div id="tipos">
-                        <aside id="Leve">
-                            <img src="imagens/leve.png" alt="">
-                            <h1>Pet Leve</h1>
-                            <img src="imagens/l.png" alt="">
-                            <h1>R$20,00 /mês</h1>
-                            <a href="login.html" class="button"><span>Contratar Plano Leve</span></a>
-                        </aside>
-                        <aside id="Tranquilo">
-                            <img src="imagens/tranquilo.png" alt="">
-                            <h1>Pet Tranquilo</h1>
-                            <img src="imagens/t.png" alt="">
-                            <h1>R$40,00 /mês</h1>                       
-                            <a href="login.html" class="button"><span>Contratar Plano Tranquilo</span></a>
-                        </aside>
-                        <aside id="Ideal">
-                            <img src="imagens/ideal.png" alt="">
-                            <h1>Pet Ideal</h1>
-                            <img src="imagens/i.png" alt="">
-                            <h1>R$100,00 /mês</h1>                        
-                            <a href="login.html" class="button"><span>Contratar Plano Ideal</span></a>
-                        </aside>
-                        <aside id="Essencial">
-                            <img src="imagens/essencial.png" alt="">
-                            <h1>Pet Essencial</h1>
-                            <img src="imagens/e.png" alt="">
-                            <h1>R$160,00 /mês</h1>
-                            <a href="login.html " class="button"><span>Contratar Essencial</span></a>
-                        </aside>
-                    </div>
-                    <button class="proximo">❯</button>
-                </div>
-            </article>
-        </section>
-        <section id="sobre">
-            <h2 id="titsobre">
-                Sobre Nós
-            </h2>
-            <p>Realizamos atendimentos, vacinas, emergência, internação separada de cães e gatos, área de passeio, hospedagem, cirurgias, atendemos animais exóticos com horário marcado, exames de imagem com horário marcado e exames laboratoriais.</p>
-        </section>
-        
-        <div id="niver" class="login">
-            <section id="aniversario">
-                <div>
-                    <button onclick="saida()" id="sair" type="submit">X</button>
-                    <h1>Nós damos descontos no aniversário do seu Pet!</h1>
-                    <form id="formAniversario">
-                        <p for="dataAniversario">Data de Aniversário do Pet:</p>
-                        <input type="date" id="dataAniversario" required>
-                        <button type="submit">Salvar Data</button>
-                    </form>
-                </div>
-            </section>
-            <div id="escuro"></div>
-        </div>
-        <div id="inserirdata">
-            <button onclick="aparecer()" id="btniver" type="submit">Clique aqui.</button>
-        </div>
-        <footer>
-            <div id="rodape">
-                <a href="index.html" class="logotipo">
-                    <img class="logo" src="imagens/logotipo.png" alt="logotipo" id="logo2">
-                </a>
-                <div id="copy">
-                    <span>&copy; Todos os direitos reservados</span>
-                </div>
+
             </div>
-        </footer>
-    </body>
-</html>
-
-<script>
-    var banner = document.getElementById('servicos');
-    var banners = [
-        'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("imagens/fundodog.jpg")',
-        'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("imagens/fundocat.jpg")'
-    ];  
-    
-    var bannerAtual = 0;
-    function trocaBanner(){
-            bannerAtual++;
-            if(bannerAtual == banners.length){
-                bannerAtual = 0;
-            }
-            banner.style.backgroundImage = banners[bannerAtual];
-        }
-    document.addEventListener('DOMContentLoaded', trocaBanner());
-    let intervalo = setInterval(trocaBanner, 3000);
-    function parar () {
-        clearInterval(intervalo);
-    };
-    function continuar () {
-        intervalo = setInterval(trocaBanner, 3000); 
-    };
-    
-    function aparecer() {
-        const niver = document.getElementById('niver');
-        niver.style.display = 'block';
-    }
-    function confirmarsaida() {
-            let resposta = confirm("Sua data pode não ter sido salva! Deseja sair?");
-            if (resposta === true) {
-                niver.style.display = 'none';
-            }
-        }
-    document.getElementById('sair').addEventListener('click', confirmarsaida);
-
-        const form = document.getElementById('formAniversario');
-      
-        form.addEventListener('submit', function(event) {
-          event.preventDefault();
-          
-          const hoje = new Date();
-          const dataAniversario = new Date(document.getElementById('dataAniversario').value);
-
-          if (dataAniversario.getDate()+1 === hoje.getDate() && dataAniversario.getMonth() === hoje.getMonth()) {
-            alert('Feliz aniversário para seu pet!');
-          } else {
-            alert('Data de aniversário do seu pet foi salva.');
-          }   
-          document.getElementById('sair').removeEventListener('click', confirmarsaida);
-          document.getElementById('sair').addEventListener('click', function saida() {
-        niver.style.display = 'none';
-        });
-        niver.style.display = 'none';
-        });
-        
-        const servicos = document.getElementById('servico');
-        const divsv = servicos.querySelectorAll('div');
-        divsv.forEach(flutuante => {
-            flutuante.addEventListener('mouseover', function() {
-                flutuante.classList.add('adc');
-            });
-        });
-        divsv.forEach(flutuante => {
-            flutuante.addEventListener('mouseout', function() {
-                    flutuante.classList.remove('adc');
-            });
-        });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    function setCookie(name, value, seconds) {
-        var date = new Date();
-        date.setTime(date.getTime() + (seconds * 1000));
-        document.cookie = name + "=" + (value) + "; expires=" + date.toUTCString() + "; path=/";
-    }
-
-    function acharCookie(name) {
-        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-        return match ? match[2] : null;
-    }
-
-    if (!acharCookie('msgbemvindo')) {
-            window.onload = function() {
-            document.getElementById("popup").style.display = "flex";
-            document.getElementById("popup").style.opacity = "1";
-            };
-        setCookie('msgbemvindo', 'true', 1);
-    }
-});
-            function fecharPopup() {
-                document.getElementById("popup").style.pointerEvents = "none";
-                document.getElementById("popup").style.opacity = "0";
-                document.getElementById("popup").style.transition = "1s";
-            }
-
             
-    const cookie = document.getElementById('cookie');
-    const botao = document.getElementById('ok');
-        botao.addEventListener ('click',function cookie () {
-            const cookie = document.getElementById('cookie');
-            cookie.style.opacity = 0;
-            cookie.style.pointerEvents = 'none';
-        });
-        function surgir() {
-            cookie.style.pointerEvents = 'auto';
-            cookie.style.opacity = 1;
-        }
-        document.addEventListener('DOMContentLoaded', surgir())
+            <div id="servicos">
 
+                <div id="ns">
 
+                    <h3>
 
+                        __________ Nossos serviços __________
+                        
+                    </h3>
 
-        const botanterior = document.querySelector('.anterior');
-        const botproximo = document.querySelector('.proximo');
-        const items = document.querySelectorAll('aside');
-        let atualindex = 0;
+                    <h1>
 
-        function atualizar() {
-        items.forEach((item, index) => {
-            item.classList.add('ativar');
-            if (index === atualindex) {
-            item.classList.remove('ativar');
-            }
-        });
-        }
+                        Oferecemos diversos serviços com profissionais altamente qualificados.
 
-        botanterior.addEventListener('click', () => {
-        atualindex = (atualindex > 0) ? atualindex - 1 : items.length - 1;
-        atualizar();
-        });
+                    </h1>
 
-        botproximo.addEventListener('click', () => {
-        atualindex = (atualindex < items.length - 1) ? atualindex + 1 : 0;
-        atualizar();
-        });
+                    <p>
 
-        atualizar();
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    document.getElementById('dogBeneficios').classList.remove('fadeOut');
-                } else {
-                    document.getElementById('dogBeneficios').classList.add('fadeOut');
-                }
-            });
-        }, {
-            threshold: 0.6
-        });
+                        Tudo o que você espera de um atendimento veterinário de qualidade, em um só lugar. Cada espaço foi totalmente planejado e equipado para oferecer à você e ao seu animal, a melhor experiência possível! 
+                    
+                    </p>
 
-        observer.observe(document.getElementById('dog'));
-    });
-</script>
+                    <p>
 
-<script>
-    const estilo = document.getElementById('estilo');
-    const tema = document.getElementById('tema');
-    function trocarTema() {
-        tema.classList.toggle('fa-rotate-180');
-        const logo1 = document.getElementById('logo1');
-        const logo2 = document.getElementById('logo2');
+                        Consultas, internações, cirurgias, vacinas, exames laboratoriais e de imagem, especialidades veterinárias, animais silvestres e muito mais!
+                    
+                    </p>
 
-        var arquivo = estilo.getAttribute('href');
-        if (arquivo === 'index.css') {
-            estilo.setAttribute('href', 'escuro.css');
-            logo1.setAttribute('src', "../imagens/logotipodark.png");
-            logo2.setAttribute('src', "../imagens/logotipodark.png");
-        } else {
-            estilo.setAttribute('href', 'index.css');
-            logo1.setAttribute('src', "../imagens/logotipo.png");
-            logo2.setAttribute('src', "../imagens/logotipo.png");
-        }
+                </div>
+
+                <div>
+
+                    <button class="setas" onclick="trocaBanner()" onmouseover="parar()" onmouseout="continuar()" id="left"> < </button>
+                    
+                    <section id="servico">
+
+                        <div id="consulta">
+
+                            <img src="/imagens/11.png">
+
+                            <h2>
+
+                                Consultas
+
+                            </h2>
+
+                            <p>
+
+                                Temos plantões veterinários 24 horas por dia, estamos sempre prontos para atender o seu animal de estimação.
+
+                            </p>
+                        
+                        </div>
+
+                        <div id="internacao">
+
+                            <img src="/imagens/22.png">
+
+                            <h2>
+
+                                Internações
+
+                            </h2>
+
+                            <p>
+
+                                Nossas internações são separadas para cães e gatos, as baias são espaçosas e individualizadas, para garantir o conforto e recuperação de seu pet.
+                            
+                            </p>
+                        
+                        </div>
+
+                        <div id="vacina">
+
+                            <img src="/imagens/33.png">
+
+                            <h2>
+
+                                Vacinas
+
+                            </h2>
+
+                            <p>
+
+                                Oferecemos diversos tipos de vacinas importadas para o seu pet!
+
+                            </p>
+
+                        </div>
+
+                        <div id="exame">
+
+                            <img src="/imagens/4.png">
+
+                            <h2>Exames</h2>
+                            
+                            <p>Contamos com profissionais altamente qualificados para a realização de exames laboratoriais e de imagem.</p>
+                        
+                        </div>
+
+                        <div id="castracao">
+
+                            <img src="/imagens/5.png">
+
+                            <h2>Castração</h2>
+
+                            <p>Nossas cirurgias de castração são 100% monitoradas por um Médico Veterinário Anestesista, garantindo a o bem-estar do seu animal de estimação.</p>
+                        
+                        </div>
+
+                        <div id="banhoetosa">
+
+                            <img src="/imagens/6.png">
+
+                            <h2>Banho e Tosa</h2>
+
+                            <p>Nosso banho e tosa conta com profissionais altamente qualificados e produtos premium, visando o bem-estar do seu pet.</p>
+                        
+                        </div>
+                        
+                    </section>
+
+                </div>
+
+                <button class="setas" onclick="trocaBanner()" onmouseover="parar()" onmouseout="continuar()" id="right"> > </button>
+            
+            </div>
+
+            <section id="planos">
+
+                <img src="/imagens/banner.png" id="banner" alt="Banner">
+
+                <div id="dog">
+
+                    <article id="dogBeneficios" class="fadeOut"> 
+
+                        <p id="topo">planos de saúde</p>
+
+                        <p id="tit">Uma vida mais longa e saudável para o seu pet</p> 
+                        
+                        <p id="mid">Conheça os benefícios do plano de saúde da Buchera Vet e comece a proteger seu pet agora mesmo</p>
+                        
+                        <p id="beneficios">&#10022; Sem variação de preço, cobertura e carência por raça, tamanho, idade e condições prévias de saúde</p>
+                        
+                        <p id="beneficios">&#10022; Quanto mais pets você incluir no plano, maiores os descontos na mensalidade</p>
+                        
+                        <p id="pct">&#10022; De 15% a 25% de desconto e frete grátis em compras na Buchera Vet</p>
+                        
+                        <a href="login.html" id="bt" class="button"><span>&#8702;Contratar Plano de Saúde Pet</span></a>
+                    
+                    </article>
+
+                </div>
+
+                <article id="precos"> 
+                           
+                    <div id="descplanos">    
+
+                        <h1 id="c">Planos para todo pet e para todos os momentos</h1>
+                        
+                        <h2><strong>Seu pet protegido sempre:</strong> mesmo preço e cobertura, independente da raça ou idade</h2>
+                        
+                        <h2><strong>Precisou, usou:</strong> sem necessidade de autorização ou burocracia para utilizar</h2>
+                    
+                    </div>
+
+                    <div class="carrossel">
+
+                        <button class="anterior">❮</button>
+
+                        <div id="tipos">
+
+                            <aside id="Leve">
+
+                                <img src="/imagens/leve.png" alt="">
+
+                                <h1>Pet Leve</h1>
+
+                                <img src="/imagens/l.png" alt="">
+
+                                <h1>R$20,00 /mês</h1>
+
+                                <a href="login.html" class="button"><span>Contratar Plano Leve</span></a>
+
+                            </aside>
+
+                            <aside id="Tranquilo">
+
+                                <img src="/imagens/tranquilo.png" alt="">
+
+                                <h1>Pet Tranquilo</h1>
+
+                                <img src="/imagens/t.png" alt="">
+                                
+                                <h1>R$40,00 /mês</h1>               
+
+                                <a href="login.html" class="button"><span>Contratar Plano Tranquilo</span></a>
+
+                            </aside>
+
+                            <aside id="Ideal">
+
+                                <img src="/imagens/ideal.png" alt="">
+
+                                <h1>Pet Ideal</h1>
+
+                                <img src="/imagens/i.png" alt="">
+
+                                <h1>R$100,00 /mês</h1>                    
+
+                                <a href="login.html" class="button"><span>Contratar Plano Ideal</span></a>
+                                
+                            </aside>
+
+                            <aside id="Essencial">
+
+                                <img src="/imagens/essencial.png" alt="">
+
+                                <h1>Pet Essencial</h1>
+
+                                <img src="/imagens/e.png" alt="">
+
+                                <h1>R$160,00 /mês</h1>
+
+                                <a href="login.html " class="button"><span>Contratar Essencial</span></a>
+
+                            </aside>
+
+                        </div>
+
+                        <button class="proximo">❯</button>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <section id="sobre">
+
+                <h2 id="titsobre">
+
+                    Sobre Nós
+
+                </h2>
+
+                <p>
+
+                    Realizamos atendimentos, vacinas, emergência, internação separada de cães e gatos, área de passeio, hospedagem, cirurgias, atendemos animais exóticos com horário marcado, exames de imagem com horário marcado e exames laboratoriais.
+                
+                </p>
+
+            </section>
+            
+            <div id="niver" class="login">
+
+                <section id="aniversario">
+
+                    <div>
+
+                        <button id="sair" type="submit">X</button>
+
+                        <h1>Nós damos descontos no aniversário do seu Pet!</h1>
+
+                        <form id="formAniversario">
+
+                            <p for="dataAniversario">Data de Aniversário do Pet:</p>
+
+                            <input type="date" id="dataAniversario" required>
+
+                            <button type="submit">Salvar Data</button>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+                <div id="escuro"></div>
+
+            </div>
+
+            <div id="inserirdata">
+
+                <button onclick="aparecer()" id="btniver" type="submit">Clique aqui.</button>
+
+            </div>
+
+        </main>
         
-    }
-</script>
+        <footer>
 
-<script>
-    function produtos() {
-        window.location.href = 'produtos.html';
-    };
+            <div id="rodape">
 
-    const popnav = document.getElementById('navigator')
-    const butt = popnav.querySelector('button')
+                <a href="#" class="logotipo">
 
-    butt.addEventListener('click', function() {
-        popnav.style.opacity = 0;
-        popnav.style.transition = '1s';
-        popnav.style.pointerEvents = 'none';
-    });
+                    <img class="logo" src="/imagens/logotipo.png" alt="logotipo" id="logo2">
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const nvgd = navigator.userAgent;
-        const sisop = navigator.platform;
+                </a>
 
-        if(nvgd.includes('Chrome')) {
-            document.querySelector('.navegador').innerHTML  = 'O navegador em uso é o: Google Chrome'
-        } else if(nvgd.includes('Microsoft')) {
-            document.querySelector('.navegador').innerHTML = 'O navegador em uso é o: Microsoft Edge'
-        } else if(nvgd.includes('Opera')) {
-            document.querySelector('.navegador').innerHTML = 'O navegador em uso é o: Opera'
-        } 
+                <div id="copy">
 
-        if(sisop.includes('Mac')) {
-            document.querySelector('.sisop').innerHTML  = 'O seu sistema operacional é: Mac'
-        } else if(sisop.includes('Win32')) {
-            document.querySelector('.sisop').innerHTML  = 'O seu sistema operacional é: Windows'
-        } else if(sisop.includes('Linux')) {
-            document.querySelector('.sisop').innerHTML  = 'O seu sistema operacional é: Linux'
-        }
-        
-    })
-</script>
+                    <span>&copy; Todos os direitos reservados</span>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

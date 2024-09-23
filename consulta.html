@@ -3,96 +3,72 @@
     <head>
         <meta charset="UTF-8">
         <title>Login | Buchera vet</title>
-        <link rel="stylesheet" href="consulta.css">
-        <link rel="icon" type="image/png" href="imagens/icon.png">
+        <link id="estilo" rel="stylesheet" href="css/consulta.css">
+        <link rel="icon" type="image/png" href="/imagens/icon.png">
     </head>
     <body>
         <header>  
-            <a onclick="voltar()" id="voltar">Voltar</a>
-            <img onclick="main()" src="imagens/logotipo.png" id="logo" alt="logotipo">
+            <a id="voltar">Voltar</a>
+            <a href="index.html">
+                <img src="/imagens/logotipo.png" id="logo1" alt="logotipo">
+            </a>
+            <a id="avancar">Avançar</a>
         </header>
 
         <div class="consulta">
-            <form id="consulta">
+            <form id="consultar">
                 <fieldset>
                     <h3>Agende uma consulta!</h3>
-                <input type="text" placeholder="Insira o nome do pet" required>
 
-                <input type="text" placeholder="Insira o nome do Dono" required>
-                
-                <div id="tipos">
-                    <select form="consulta" name="tipo" required id="tipo">
-                        <option value="0" selected disabled>Especialidade Veterinária</option>
-                        <option value="1">Clínica Geral</option>
-                        <option value="2">Cardiologista</option>
-                        <option value="3">Odontológico</option>
-                        <option value="4">Dermatologista</option>
-                        <option value="5">Comportamental</option>
-                </select>
-                </div>
+                    <input type="text" placeholder="Insira o nome do pet" required>
 
-                <div id="medicos">
-                     <select form="consulta" name="medicos" required id="medicos">
-                        <option value="0" selected disabled>Médico Responsável</option>
-                        <option value="1">Qualquer Médico</option>
-                        <option value="2">Dr. Caio Yudi Mine Hada </option>
-                        <option value="3">Dr. Levi Rodrigues</option>
-                        <option value="4">Dr. Murillo Levis</option>
-                        <option value="5">Dr. Daniel Evangelista</option>
-                        <option value="6">Dr. Rafael Burbach</option>
+                    <input type="text" placeholder="Insira o nome do Dono" required>
+                    
+                    <div id="tipos">
+                        <select form="consultar" name="tipo" required id="tipo">
+                            <option value="0" selected disabled>Especialidade Veterinária</option>
+                            <option value="1">Clínica Geral</option>
+                            <option value="2">Cardiologista</option>
+                            <option value="3">Odontológico</option>
+                            <option value="4">Dermatologista</option>
+                            <option value="5">Comportamental</option>
+                        </select>
+                    </div>
 
-                </select>
-                 </div>
+                    <div id="medicos">
+                        <select form="consultar" name="medicos" required id='medico'>
+                            <option value="0" selected disabled>Médico Responsável</option>
+                            <option value="1">Qualquer Médico</option>
+                            <option value="2">Dr. Caio Yudi Mine Hada </option>
+                            <option value="3">Dr. Levi Rodrigues</option>
+                            <option value="4">Dr. Murillo Levis</option>
+                            <option value="5">Dr. Daniel Evangelista</option>
+                            <option value="6">Dr. Rafael Burbach</option>
+                        </select>
+                    </div>
 
-                        <script>
+                    <input type="date" id="dataConsulta" required>
 
-                        const medicos = {
-                                1: ['Dr. Caio Yudi Mine Hada'],
-                                2: ['Dr. Levi Rodrigues'],
-                                3: ['Dr. Murillo Levis'],
-                                4: ['Dr. Daniel Evangelista'],
-                                5: ['Dr. Rafael Burbach']
-                            };
+                    <input type="time" id="hora" name="hora" min="07:30" max="19:30" required />
 
-                            document.getElementById('tipo').addEventListener('change', function() {
-                                const tipo = this.value;
-                                const medicoSelect = document.getElementById('medicos').querySelector('select');
-
-                                medicoSelect.innerHTML = '<option value="0" selected disabled>Médico Responsável</option>';
-
-                                if (medicos[tipo]) {
-                                    medicos[tipo].forEach(medico => {
-                                        medicoSelect.innerHTML += `<option value="${medico}">${medico}</option>`;
-                                    });
-                                }
-                            });
-
-                        </script>
-
-
-                <input type="date" id="dataConsulta" required>
-
-                <input type="time" id="hora" name="hora" min="07:30" max="19:30" required />
-
-                <button type="submit">Agendar</button>
-                
-                <script>
-                document.getElementById('voltar').addEventListener('click', function() {
-                alert('Você pode perder os dados da consulta se não tiver agendado ainda. Deseja realmente sair?');});
-                </script>
-
-                
+                    <button type="submit">Agendar</button>
+                            
                 </fieldset>
-        </form>
+            </form>
         </div>
-    </body>
-</html>
 
-<script>
-    function main() {
-        window.location.href = 'index.html';
-    }
-    function voltar() {
-        history.go(-1);
-    }
-</script>
+        <footer>
+            <div id="rodape">
+                <a href="index.html" class="logotipo">
+                    <img class="logo" src="/imagens/logotipo.png" alt="logotipo" id="logo2">
+                </a>
+                <div id="copy">
+                    <span>&copy; Todos os direitos reservados</span>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <script src="js/consulta.js"></script>
+    
+</html>
