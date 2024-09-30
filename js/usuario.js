@@ -1,4 +1,4 @@
-//CÓDIGO JAVASCRIPT PARA A PÁGINA POLITICA:
+//CÓDIGO JAVASCRIPT PARA A PÁGINA USUARIO:
 
 /* Código para voltar e avançar nas páginas de acordo com o histórico do navegador */
 
@@ -18,6 +18,45 @@ function avancar() {
 
 
 
+/* Código para mostrar os dados do Usuário */
+
+function getCookie(name) {
+
+    var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[1]) : '';
+
+};
+
+var ano = parseInt(getCookie('anoUsuario'));
+
+ano = ano + 1923;
+
+document.getElementById('nome').innerHTML = getCookie('nomeUsuario');
+
+document.getElementById('email').innerHTML = getCookie('emailUsuario');
+
+document.getElementById('senha').innerHTML = getCookie('senhaUsuario');
+
+document.getElementById('data').innerHTML = getCookie('diaUsuario') + ' de ' + getCookie('mesUsuario') + ' de ' + ano;
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+
+/* Código para sair da sessão */
+
+function sairSessao() {
+
+    document.cookie = 'logado=' + encodeURIComponent('false') + '; path=/';
+
+    window.location.assign('index.html');
+
+};
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+
 /* Código para alterar o tema */
 
 function trocarTema() {
@@ -29,13 +68,13 @@ function trocarTema() {
 
     var arquivo = estilo.getAttribute('href');
 
-    if (arquivo === 'css/politica.css') {
-        estilo.setAttribute('href', 'css/politicaEscuro.css');
+    if (arquivo === 'css/usuario.css') {
+        estilo.setAttribute('href', 'css/usuarioEscuro.css');
         logo1.setAttribute('src', "../imagens/logotipodark.png");
         logo2.setAttribute('src', "../imagens/logotipodark.png");
         document.cookie = 'tema=' + 'escuro';
     } else {
-        estilo.setAttribute('href', 'css/politica.css');
+        estilo.setAttribute('href', 'css/usuario.css');
         logo1.setAttribute('src', "../imagens/logotipo.png");
         logo2.setAttribute('src', "../imagens/logotipo.png");
         document.cookie = 'tema=' + 'claro';
@@ -62,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (valorTema === 'escuro') {
 
-        estilo.setAttribute('href', 'css/politicaEscuro.css');
+        estilo.setAttribute('href', 'css/usuarioEscuro.css');
 
         logo1.setAttribute('src', "../imagens/logotipodark.png");
 
@@ -70,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     } else {
 
-        estilo.setAttribute('href', 'css/politica.css');
+        estilo.setAttribute('href', 'css/usuario.css');
 
         logo1.setAttribute('src', "../imagens/logotipo.png");
         

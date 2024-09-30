@@ -304,7 +304,7 @@ function trocarTema() {
     var arquivo = estilo.getAttribute('href');
 
     if (arquivo === 'css/index.css') {
-        estilo.setAttribute('href', 'css/escuroIndex.css');
+        estilo.setAttribute('href', 'css/indexEscuro.css');
         logo1.setAttribute('src', "../imagens/logotipodark.png");
         logo2.setAttribute('src', "../imagens/logotipodark.png");
         document.cookie = 'tema=' + 'escuro';
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (valorTema === 'escuro') {
 
-        estilo.setAttribute('href', 'css/escuroIndex.css');
+        estilo.setAttribute('href', 'css/indexEscuro.css');
 
         logo1.setAttribute('src', "../imagens/logotipodark.png");
 
@@ -358,20 +358,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-/* Código para verificar se o usuário está logado e redirecioná-lo para "login" ou "produtos" */
+/* Código para verificar se o usuário está logado e redirecioná-lo para "login" ou para o destino original */
 
-function checarProdutos(name) {
+function checarLogado() {
 
-    var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
-    
-    if (match) {
+    function getCookie(name) {
 
-        window.location.assign('produtos.html');
+        var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+
+        return match ? decodeURIComponent(match[1]) : '';
         
-    } else {
+    };
+
+    if (getCookie('logado') !== 'true') {
+
+        event.preventDefault();
 
         window.location.assign('login.html');
-        
+
     };
 };
 
@@ -417,32 +421,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-/* Código para verificar se o usuário está logado e redirecioná-lo para "login" ou "consulta" */
-
-function checarConsulta(name) {
-
-    var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
-    
-    if (match) {
-
-        window.location.assign('consulta.html');
-        
-    } else {
-
-        window.location.assign('login.html');
-        
-    };
-};
-
-//---------------------------------------------------------------------------------------------------------------
-
-
-
 /* Código para verificar se o usuário está logado */
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    var verificarLogin = document.cookie.match(new RegExp(('logado') + '=([^;]+)'));    
+    function getCookie(name) {
+
+        var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+
+        return match ? decodeURIComponent(match[1]) : '';
+        
+    };
+
+    var verificarLogin = getCookie('logado');
 
     var login = document.getElementById('login');
 
@@ -452,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    if (verificarLogin) {
+    if (verificarLogin === 'true') {
 
         login.style.display = 'none';
 
@@ -463,11 +454,5 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
 });
-
-function irUsuario() {
-
-    window.location.assign('usuario.html');
-
-};
 
 //---------------------------------------------------------------------------------------------------------------

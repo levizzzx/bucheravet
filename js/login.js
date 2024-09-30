@@ -738,15 +738,14 @@ function trocarTema() {
     tema.classList.toggle('fa-rotate-180');
 
     const logo1 = document.getElementById('logo1');
-    const logo2 = document.getElementById('logo2');
 
     var arquivo = estilo.getAttribute('href');
 
     if (arquivo === 'css/login.css') {
 
-        estilo.setAttribute('href', 'css/escuroLogin.css');
+        estilo.setAttribute('href', 'css/loginEscuro.css');
 
-        logo.setAttribute('src', "../imagens/logotipodark.png");
+        logo1.setAttribute('src', "/imagens/logotipodark.png");
 
         document.cookie = 'tema=' + 'escuro';
 
@@ -754,7 +753,7 @@ function trocarTema() {
 
         estilo.setAttribute('href', 'css/login.css');
 
-        logo.setAttribute('src', "../imagens/logotipo.png");
+        logo1.setAttribute('src', "/imagens/logotipo.png");
 
         document.cookie = 'tema=' + 'claro';
 
@@ -781,15 +780,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (valorTema === 'escuro') {
 
-        estilo.setAttribute('href', 'css/escuroLogin.css');
+        estilo.setAttribute('href', 'css/loginEscuro.css');
 
-        logo.setAttribute('src', "../imagens/logotipodark.png");
+        logo1.setAttribute('src', "/imagens/logotipodark.png");
 
     } else {
 
         estilo.setAttribute('href', 'css/login.css');
 
-        logo.setAttribute('src', "../imagens/logotipo.png");
+        logo1.setAttribute('src', "/imagens/logotipo.png");
 
     };
     

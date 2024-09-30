@@ -125,7 +125,7 @@ function trocarTema() {
     var arquivo = estilo.getAttribute('href');
 
     if (arquivo === 'css/consulta.css') {
-        estilo.setAttribute('href', 'css/escuroConsulta.css');
+        estilo.setAttribute('href', 'css/consultaEscuro.css');
         logo1.setAttribute('src', "../imagens/logotipodark.png");
         logo2.setAttribute('src', "../imagens/logotipodark.png");
         document.cookie = 'tema=' + 'escuro';
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (valorTema === 'escuro') {
 
-        estilo.setAttribute('href', 'css/escuroConsulta.css');
+        estilo.setAttribute('href', 'css/consultaEscuro.css');
 
         logo1.setAttribute('src', "../imagens/logotipodark.png");
 
