@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>Login | Buchera vet</title>
+        
+        <link id="estilo" rel="stylesheet" href="css/usuario.css">
+
+        <link rel="icon" type="image/png" href="/imagens/icon.png">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </head>
+
+    <body>
+
+        <header>
+
+            <a onclick="voltar()" id="voltar">Voltar</a>
+
+            <a href="index.html">
+
+                <img src="/imagens/logotipo.png" id="logo1" alt="logotipo">
+                
+            </a>
+
+            <i id="tema" onclick="trocarTema()" class="fa-solid fa-circle-half-stroke fa-rotate-180 temaCor"></i>
+
+            <a onclick="avancar()" id="avancar">Avançar</a>
+
+        </header>
+
+        <main>
+    
+            <div id="areaUsuario">
+
+                <section id="informacoes">
+
+                    <h2>Informações de Usuário</h2>
+
+                
+
+                        <h4>Nome do Usuário:</h4>
+                
+                            <p id="nome"></p>
+                    
+                        <h4>Email do Usuário</h4>
+                
+                            <p id="email"></p>
+                        
+                        <h4>Senha do Usuário</h4>
+
+                            <p id="senha"></p>
+                        
+                        <h4>Data de nascimento do Usuário</h4>
+
+                            <p id="data"></p>
+
+                    <button id="sairSessao" onclick="sairSessao()">Finalizar Sessão</button>
+
+                </section>
+            </div>
+            
+        </main>
+
+        <footer>
+
+            <div id="rodape">
+
+                <a href="#" class="logotipo">
+
+                    <img class="logo" src="/imagens/logotipo.png" alt="logotipo" id="logo2">
+
+                </a>
+
+                <div id="copy">
+
+                    <span>&copy; Todos os direitos reservados</span>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </body>
+
+    <script src="js/usuario.js"></script>
+
+</html>

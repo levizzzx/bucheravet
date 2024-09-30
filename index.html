@@ -79,15 +79,23 @@
 
             <div id="fazerconsulta">
 
-                <a href="#" onclick="checarConsulta('logado')">Marque sua consulta</a>
+                <a href="consulta.html" onclick="checarLogado()">Marque sua consulta</a>
 
             </div>
 
-            <i id="usuario" onclick="irUsuario()" class="fa-solid fa-circle-user"></i>
+            <a href="usuario.html" onclick="checarLogado()">
+
+                <i id="usuario" class="fa-solid fa-circle-user"></i>
+                
+            </a>
 
             <i id="tema" onclick="trocarTema()" class="fa-solid fa-circle-half-stroke fa-rotate-180 temaCor"></i>
 
-            <i id="produtos" class="fa-solid fa-cart-shopping" onclick="checarProdutos('logado')"></i>
+            <a href="produtos.html" onclick="checarLogado()">
+
+                <i id="produtos" class="fa-solid fa-cart-shopping"></i>
+
+            </a>
 
         </header>
 
@@ -267,7 +275,7 @@
                         
                         <p id="pct">&#10022; De 15% a 25% de desconto e frete grátis em compras na Buchera Vet</p>
                         
-                        <a href="login.html" id="bt" class="button"><span>&#8702;Contratar Plano de Saúde Pet</span></a>
+                        <a href="planos.html" onclick="checarLogado()" id="bt" class="button"><span>&#8702;Contratar Plano de Saúde Pet</span></a>
                     
                     </article>
 
@@ -301,7 +309,7 @@
 
                                 <h1>R$20,00 /mês</h1>
 
-                                <a href="login.html" class="button"><span>Contratar Plano Leve</span></a>
+                                <a href="planos.html" onclick="checarLogado()" class="button"><span>Contratar Plano Leve</span></a>
 
                             </aside>
 
@@ -315,7 +323,7 @@
                                 
                                 <h1>R$40,00 /mês</h1>               
 
-                                <a href="login.html" class="button"><span>Contratar Plano Tranquilo</span></a>
+                                <a href="planos.html" onclick="checarLogado()" class="button"><span>Contratar Plano Tranquilo</span></a>
 
                             </aside>
 
@@ -329,7 +337,7 @@
 
                                 <h1>R$100,00 /mês</h1>                    
 
-                                <a href="login.html" class="button"><span>Contratar Plano Ideal</span></a>
+                                <a href="planos.html" onclick="checarLogado()" class="button"><span>Contratar Plano Ideal</span></a>
                                 
                             </aside>
 
@@ -343,7 +351,7 @@
 
                                 <h1>R$160,00 /mês</h1>
 
-                                <a href="login.html " class="button"><span>Contratar Essencial</span></a>
+                                <a href="planos.html" onclick="checarLogado()" class="button"><span>Contratar Essencial</span></a>
 
                             </aside>
 

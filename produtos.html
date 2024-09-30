@@ -1,215 +1,159 @@
 <!DOCTYPE html>
+
 <html lang="PT-BR">
+
     <head>
+
         <meta charset="UTF-8" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Produtos | Buchera Vet </title>
-        <link rel="stylesheet" href="css/produtos.css">
+
+        <link id="estilo" rel="stylesheet" href="css/produtos.css">
+
         <link rel="icon" type="image/png" href="imagens/icon.png">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     </head>
+
     <body>
+        
         <header>
-            <a href="index.html" class="logotipo">
-                <img src="imagens/logotipo.png" alt="logotipo">
-            </a>
-            <div id="procura">
-                <i class="fas fa-search"></i>
-                <input type="text" id="myInput" placeholder="O que seu pet precisa?">
-            </div>     
-        </header>
-        <div id="categorias">
-            <ul>
-                <button>
-                    <li class="categoria" id="cachorro">Cachorro</li>
-                    <div class="produtos" id="produtodog">
-                        <ul>
-                            <li>Ração</li>
-                            <li>Pestiscos</li>
-                            <li>Brinquedos</li>
-                            <li>Coleiras</li>
-                            <li>Peitorais</li>
-                            <li>Beleza e Limpeza</li>
-                            <li>Cobertores</li>
-                            <li>Casas</li>
-                        </ul>
-                    </div> 
-                </button>              
-                <button>
-                    <li class="categoria" id="gato">Gato</li>
-                    <div class="produtos" id="produtogato">
-                        <ul>
-                            <li>Ração</li>
-                            <li>Pestiscos</li>
-                            <li>Arranhadores</li>
-                            <li>Areias</li>
-                            <li>Peitorais</li>
-                            <li>Beleza e Limpeza</li>
-                            <li>Roupas</li>
-                            <li>Camas</li>
-                        </ul>
-                    </div> 
-                </button>
-                <button>
-                    <li class="categoria" id="passaro">Pássaro</li>
-                    <div class="produtos" id="produtopassaro">
-                        <ul>
-                            <li>Alimentação</li>
-                            <li>Gaiolas</li>
-                            <li>Brinquedos</li>
-                            <li>Acessórios</li>
-                        </ul>
-                    </div>
-                </button>
-                <button>
-                    <li class="categoria" id="peixe">Peixe</li>
-                    <div class="produtos" id="produtopeixe">
-                        <ul>
-                            <li>Ração</li>
-                            <li>Pestiscos</li>
-                            <li>Arranhadores</li>
-                            <li>Areias</li>
-                            
-                        </ul>
-                    </div> 
-                </button>
-                <button>
-                    <li class="categoria" id="outros">Outros Pets</li>
-                    <div class="produtos" id="produtooutros">
-                        <ul>
-                            <li>Coelhos</li>
-                            <li>Hamisters</li>
-                            <li>Furão</li>
-                            <li>Tartaruga</li>
-                            <li>Largatos</li>
-                            <li>Chincilas</li>
-                            <li>Gerbíl</li>
-                            <li>Porquinho da Índia</li>
-                        </ul>
-                    </div> 
-                </button>
-                <button>
-                    <li id="promocoes">Promoções</li>
-                </button>
-                <button>
-                    <li id="servicos">Serviços</li>
-                </button>
-            </ul>
-            <div id="escuro">
+
+            <a onclick="voltar()" id="voltar">Voltar</a>
+
+            <a href="index.html">
+
+                <img src="/imagens/logotipo.png" id="logo1" alt="logotipo">
                 
-            </div>
-        </div>
-        <div id="assinatura">
-            Assinatura Buchera Veterínaria
-            <p>10% OFF agora!</p>
-        </div>  
-        <div id="tudopdog">
-            <h2 id="titulo">Tudo para cachorros</h2> 
-            <section id="pdogs">
-                <span id="ant">
-                    <p><</p>
-                </span>
-                <div>
-                    <img src="/imagens/racao-selections.png" alt="ração">
-                    <h2>Ração</h2>
-                </div>
-                <div>
-                    <img src="/imagens/petiscos-e-ossos.png" alt="ração">
-                    <h2>Petisco e Osso</h2>
-                </div>
-                <div>
-                    <img src="/imagens/higiene.png" alt="ração">
-                    <h2>Higiene</h2>
-                </div>
-                <div>
-                    <img src="/imagens/farmacia-bravecto.png" alt="ração">
-                    <h2>Farmácia</h2>
-                </div>
-                <div>
-                    <img src="/imagens/brinquedos-cachorro.png" alt="ração">
-                    <h2>Brinquedos</h2>
-                </div>
-                <span id="prox">
-                    <p>></p>
-                </span>
-            </section> 
-        </div>
-        <div id="tudopcat">
-            <h2 id="titulo">Tudo para gatos</h2> 
-            <section id="pcats">
-                <div id="anterior">
-                    <p><</p>
-                </div>
-                <article>
-                    <img src="/imagens/racao-nutrifresh.png" alt="ração">
-                    <h2>Ração</h2>
-                </article>
-                <article>
-                    <img src="/imagens/petisco-e-biscoito.png" alt="ração">
-                    <h2>Petisco e Biscoito</h2>
-                </article>
-                <article>
-                    <img src="/imagens/higiene 1.png" alt="ração">
-                    <h2>Higiene</h2>
-                </article>
-                <article>
-                    <img src="/imagens/farmacia.png" alt="ração">
-                    <h2>Farmácia</h2>
-                </article>
-                <article>
-                    <img src="/imagens/arranhador-e-brinquedo.png" alt="ração">
-                    <h2>Arranhador e brinquedos</h2>
-                </article>
-                <div id="proximo">
-                    <p>></p>
-                </div>
-            </section> 
-        </div>
+            </a>
+
+            <i id="tema" onclick="trocarTema()" class="fa-solid fa-circle-half-stroke fa-rotate-180 temaCor"></i>
+
+            <a onclick="avancar()" id="avancar">Avançar</a>
+
+        </header>
+
+        <main>
+
+            <form id="buscaForm">
+
+                <input type="text" id="buscaInput" placeholder="Pesquisar produtos...">
+
+                <button id="botaoForm" type="submit">Buscar</button>
+
+            </form>
+
+            <ul id="listaProdutos" style="list-style: none;">
+
+                <li class="produtos">
+
+                    <h3>Ração 1</h3>
+
+                    <p>Ração legal</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Acessório 1</h3>
+
+                    <p>Acessório legal</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Brinquedo 1</h3>
+
+                    <p>Brinquedo legal</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Petisco 1</h3>
+
+                    <p>Petisco legal</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Shampoo 1</h3>
+
+                    <p>Shampoo legal</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Ração 2</h3>
+
+                    <p>Ração divertida</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Acessório 2</h3>
+
+                    <p>Acessório divertido</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Brinquedo 2</h3>
+
+                    <p>Brinquedo divertido</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Petisco 2</h3>
+
+                    <p>Petisco divertido</p>
+
+                </li>
+
+                <li class="produtos">
+
+                    <h3>Shampoo 2</h3>
+
+                    <p>Shampoo divertido</p>
+
+                </li>
+
+            </ul>
+
+        </main>
+
         <footer>
+
             <div id="rodape">
-                <a href="index.html" class="logotipo">
-                    <img src="imagens/logotipo.png" alt="logotipo">
+
+                <a href="#" class="logotipo">
+
+                    <img class="logo" src="/imagens/logotipo.png" alt="logotipo" id="logo2">
+
                 </a>
+
                 <div id="copy">
+
                     <span>&copy; Todos os direitos reservados</span>
+
                 </div>
+
             </div>
+
         </footer>
+
     </body>
+
+    <script src="js/produtos.js"></script>
+
 </html>
-
-<script>
-    var categoria = document.querySelectorAll('.categoria');
-    var produtos = document.querySelectorAll('.produtos');
-    var escuro = document.getElementById('escuro')
-
-categoria.forEach(function(categoria, index) {
-    categoria.addEventListener('mouseover', function() {
-        produtos[index].style.opacity = '1';
-        produtos[index].style.visibility = 'visible';
-        escuro.style.opacity = '0.8';
-        escuro.style.visibility = 'visible'
-    });
-    
-    categoria.addEventListener('mouseout', function() {
-        produtos[index].style.opacity = '0';
-        produtos[index].style.visibility = 'hidden';
-        escuro.style.opacity = '0';
-        escuro.style.visibility = 'hidden'
-    });
-
-    produtos[index].addEventListener('mouseover', function() {
-        produtos[index].style.opacity = '1';
-        produtos[index].style.visibility = 'visible';
-        escuro.style.opacity = '0.8';
-        escuro.style.visibility = 'visible'
-    });
-
-    produtos[index].addEventListener('mouseout', function() {
-        produtos[index].style.opacity = '0';
-        produtos[index].style.visibility = 'hidden';
-        escuro.style.opacity = '0';
-        escuro.style.visibility = 'hidden'
-    });
-});
-</script>
