@@ -132,3 +132,40 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //---------------------------------------------------------------------------------------------------------------
+
+
+
+/* Código para buscar o arquivo "promocoes.txt" e mostrar as promoções ativas a partir dele */
+
+getText("promocoes.txt");
+
+async function getText(file) {
+    let myObject = await fetch(file);
+    let myText = await myObject.text();
+    document.getElementById("textoPromocoes").innerHTML = myText;
+}
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+
+/* Código para mover o texto de promoções contínuamente */
+
+document.addEventListener('DOMContentLoaded', function() {
+    var promocoes = document.getElementById("textoPromocoes");  
+
+    var posicaoInicial = 100;
+    var posicaoFinal = -49;
+    var posicaoAtual = posicaoInicial;
+
+    function carrossel() {
+        if (posicaoAtual >= posicaoFinal) {
+            posicaoAtual = posicaoAtual - 0.1;
+        } else {
+            posicaoAtual = posicaoInicial;
+        }
+        promocoes.style.left = posicaoAtual + 'vw';
+    }
+
+    setInterval(carrossel, 10);
+});
