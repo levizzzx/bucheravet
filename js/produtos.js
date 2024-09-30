@@ -137,13 +137,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Código para buscar o arquivo "promocoes.txt" e mostrar as promoções ativas a partir dele */
 
-getText("promocoes.txt");
+getText("promo1.txt");
 
 async function getText(file) {
+
     let myObject = await fetch(file);
+
     let myText = await myObject.text();
-    document.getElementById("textoPromocoes").innerHTML = myText;
-}
+
+    document.getElementById("textoPromo1").innerHTML = myText;
+
+};
+
+
+
+getText2("promo2.txt");
+
+async function getText2(file) {
+
+    let myObject = await fetch(file);
+
+    let myText = await myObject.text();
+
+    document.getElementById("textoPromo2").innerHTML = myText;
+
+};
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -152,20 +170,59 @@ async function getText(file) {
 /* Código para mover o texto de promoções contínuamente */
 
 document.addEventListener('DOMContentLoaded', function() {
-    var promocoes = document.getElementById("textoPromocoes");  
+
+    var promo1 = document.getElementById("textoPromo1");  
 
     var posicaoInicial = 100;
     var posicaoFinal = -49;
     var posicaoAtual = posicaoInicial;
 
     function carrossel() {
+
         if (posicaoAtual >= posicaoFinal) {
+
             posicaoAtual = posicaoAtual - 0.1;
+
         } else {
+
             posicaoAtual = posicaoInicial;
-        }
-        promocoes.style.left = posicaoAtual + 'vw';
-    }
+
+        };
+
+        promo1.style.left = posicaoAtual + 'vw';
+
+    };
 
     setInterval(carrossel, 10);
+
+
+
+    function iniciarCarrossel2() {
+        var promo2 = document.getElementById("textoPromo2");  
+
+        var posicaoInicial2 = 100;
+        var posicaoFinal2 = -49;
+        var posicaoAtual2 = posicaoInicial2;
+
+        function carrossel2() {
+
+            if (posicaoAtual2 >= posicaoFinal2) {
+
+                posicaoAtual2 = posicaoAtual2 - 0.1;
+
+            } else {
+
+                posicaoAtual2 = posicaoInicial2;
+
+            }
+
+            promo2.style.left = posicaoAtual2 + 'vw';
+
+        };
+
+        setInterval(carrossel2, 10);
+    };
+    setTimeout(iniciarCarrossel2, 6000);
 });
+
+//---------------------------------------------------------------------------------------------------------------
