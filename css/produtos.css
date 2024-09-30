@@ -128,15 +128,22 @@ footer {
     position: relative;
     overflow: hidden;
     height: 7vh;
-    background-color: rgb(78, 78, 78);
-    color: rgb(255, 255, 255);
+    background-color: rgb(182, 182, 182);
+    color: rgb(126, 5, 116);
     border: none;
     padding: 1vw;
 }
 
-#textoPromocoes {
+#textoPromo1 {
     position: absolute;
     white-space: nowrap;
     display: inline-block;
     left: 100vw;
-}   
+}
+
+#textoPromo2 {
+    position: absolute;
+    white-space: nowrap;
+    display: inline-block;
+    left: 100vw;
+}
