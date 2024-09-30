@@ -43,7 +43,7 @@ header {
     box-shadow: 0 0 1vw 0 black;
 }
 
-#logo {
+#logo1 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -83,4 +83,53 @@ p {
     padding: 5vw;
     width: 50vw;
     margin: auto;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+
+#tema {
+    position: absolute;
+    top: 36%;
+    right: 19%;
+    font-size: 2.5vw;
+    cursor: pointer;
+}   
+.temaCor {
+    color: rgb(0, 0, 0);
+}
+
+footer {
+    background-color: rgb(95, 52, 173);
+    width: 100%;
+    position: static;
+    padding: 2vw 0 2vw 0;
+    bottom: 0%;
+}
+
+footer .logotipo, #copy {
+    width: 17vw;
+    margin: 0;
+}
+
+#rodape {
+    font-size: 1.3vw;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logotipo, .logotipo img {
+    width: 15vw;
+    display: inline-block;
+    height: 100%;
+}
+
+#copy {
+    color: white;
+    position: relative;
+}
+
+footer {
+    margin-top: 3vw;
 }

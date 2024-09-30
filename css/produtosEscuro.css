@@ -5,16 +5,16 @@ body::-webkit-scrollbar {
     width: 1vw;
 }
 body::-webkit-scrollbar-track {
-    background: rgb(252, 252, 252);
+    background: rgb(0, 0, 0);
 }
 body::-webkit-scrollbar-thumb {
-    background-color: rgb(95, 52, 173);
+    background-color: rgb(45, 7, 117);
     border-radius: 0.3vw;
     height: 8.3vw;
 }
 
 #voltar {
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-family: cursive;
     font-size: 1.5vw; 
@@ -25,7 +25,7 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 #avancar {
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-family: cursive;
     font-size: 1.5vw; 
@@ -35,14 +35,12 @@ body::-webkit-scrollbar-thumb {
     transform: translate(90vw, -50%);
     cursor: pointer;
 }
-
 header {
     position: relative;
     height: 7vw;
-    background-color: #ffffff;
-    box-shadow: 0 0 1vw 0 black;
+    background-color: #000000;
+    box-shadow: 0 0 1vw 0 black;;
 }
-
 #logo1 {
     position: absolute;
     top: 50%;
@@ -55,10 +53,11 @@ header {
 body {
     background-size: 60%;
     margin: 0;
+    background-color: rgb(110, 110, 110);
 }
 
 footer {
-    background-color: rgb(95, 52, 173);
+    background-color: rgb(0, 0, 0);
     width: 100%;
     position: static;
     padding: 2vw 0 2vw 0;
@@ -85,8 +84,9 @@ header .logotipo, .logotipo img {
 }
 
 #copy {
-    color: white;
+    color: rgb(99, 99, 99);
     position: relative;
+    margin-left: 3vw;
 }
 
 footer {
@@ -101,23 +101,23 @@ footer {
     cursor: pointer;
 }   
 .temaCor {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 #buscaInput {
-    background-color: rgb(219, 219, 219);
-    color: rgb(0, 0, 0);
+    background-color: black;
+    color: white;
     border: none;
     border-radius: 1vw;
 }
 
 #buscaInput::placeholder {
-    color: rgb(0, 0, 0);
+    color: white;
 }
 
 #botaoForm {
-    background-color: rgb(76, 0, 109);
-    color: rgb(255, 255, 255);
+    background-color: rgb(12, 240, 12);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 1vw;
     padding: 1vw;
