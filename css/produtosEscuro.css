@@ -123,3 +123,20 @@ footer {
     padding: 1vw;
     cursor: pointer;
 }
+
+#promocoes {
+    position: relative;
+    overflow: hidden;
+    height: 7vh;
+    background-color: rgb(86, 192, 0);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 1vw;
+}
+
+#textoPromocoes {
+    position: absolute;
+    white-space: nowrap;
+    display: inline-block;
+    left: 100vw;
+}   
