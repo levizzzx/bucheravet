@@ -13,7 +13,12 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="186114144070-8gr5bn1gon6fus9adnmb9h1daji9rbl0.apps.googleusercontent.com">
+
     </head>
+
+    <body onload="onLoad()">
 
     <body>
 
@@ -38,37 +43,21 @@
             <div class="login-cadastro">
 
                 <div id="login">
-
                     <h1>Login</h1>
-                
-                    <img src="/imagens/2.png" alt="goggle">
 
-                    <p>
+                    <img id="google-login" src="/imagens/2.png" alt="goggle" style="cursor: pointer;">
 
-                        Ou entre com seu E-mail e Senha:
+                 
 
-                    </p>
-        
+                    <p>Ou entre com seu E-mail e Senha:</p>
                     <form method="get" id="entrar" action="index.html">
-
-                        <input id="emailLogin" name="emailLogin" type="email" placeholder="" oninput="lowerCaseLogin(), onInputEmailLogin()" required autocomplete="on">
-                        
-                        <label id="label-emailLogin" for="emailLogin">E-mail</label>
-
-                        <i id="simbolo-emailLogin" class="fas fa-envelope"></i>
-
-                        <input id="senhaLogin" name="senhaLogin" type="password" placeholder="" oninput="onInputSenhaLogin(), espacoSenhaLogin()" required>
-                        
-                        <label id="label-senhaLogin" for="senhaLogin">Senha</label>
-                        
-                        <i id="simbolo-senhaLogin" class="fa-regular fa-eye"></i>
-
-                        <p id="avisoLogin"></p>
-                                 
+                        <input id="emailLogin" name="emailLogin" type="email" required>
+                        <label for="emailLogin">E-mail</label>
+                        <input id="senhaLogin" name="senhaLogin" type="password" required>
+                        <label for="senhaLogin">Senha</label>
                         <button id="botaoLogin" type="submit">Entrar</button>
-
                     </form>
-
+                    
                     <p id="irCadastro">
 
                         Não tem uma conta?
