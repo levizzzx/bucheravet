@@ -795,3 +795,31 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //---------------------------------------------------------------------------------------------------------------
+
+
+
+/* Código para o login do google funcionar bontinho coisa linda */
+
+function EntrarGoogle(googleUser) {
+    const profile = googleUser.getBasicProfile();
+    console.log(`ID: ${profile.getId()}`);
+    console.log(`Nome: ${profile.getName()}`);
+    console.log(`URL da Imagem: ${profile.getImageUrl()}`);
+    console.log(`E-mail: ${profile.getEmail()}`);
+    window.location.href = 'index.html';
+}
+
+function onLoad() {
+    gapi.load('auth2', () => {
+        gapi.auth2.init({
+            client_id: '186114144070-8gr5bn1gon6fus9adnmb9h1daji9rbl0.apps.googleusercontent.com',
+        });
+    });
+}
+
+document.getElementById('google-login').onclick = () => {
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.signIn().then(EntrarGoogle);
+};
+
+//---------------------------------------------------------------------------------------------------------------
