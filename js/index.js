@@ -455,4 +455,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+//----------------------------------------------------------------------------------------------------------
+
+/* Código de geolocalização da clínica */
+
+    var map = L.map('map').setView([-24.00854582811964, -46.43544800315092], 13); 
+    /*Essa var cria um objeto map do Leaflet, associando-o ao elemento HTML com o ID map. 
+        SetView define a localização usando as coordenadas do lugar */
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    /* O tileLayer: pega "camadas" do mapa do URL OpenStreetMap.*/
+
+    maxZoom: 18,
+    minZoom: 15,
+    /*maxZoom :define o zoom máximo e minZoom: define o zoom mínimo*/
+
+}).addTo(map);
+
+    var marker = L.marker([-24.00854582811964, -46.43544800315092]).addTo(map);
+    /* Essa var cria um marcador no mapa mostrando aonde fica a clíica exatamente.*/
+
+    marker.bindPopup("Clínica Buchera Vet").openPopup();
+    /* Defini um Popup para exibir o nome da nossa clínica no marcador quando o usuário clicar*/
+
 //---------------------------------------------------------------------------------------------------------------

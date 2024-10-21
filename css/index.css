@@ -664,6 +664,30 @@ footer .logotipo, #copy {
     display: none;
 }
 
+#map {
+    width: 60vw;
+    height: 35vw;
+    z-index: 1;
+    border: 1px solid black;
+}
+
+#localizacao {
+    display: flex;
+    height: 45vw;
+    background-color: rgb(207, 206, 206);
+    align-items: center;
+    justify-content: space-around;
+}
+
+#nossaloca {
+    font-size: 2vw;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.leaflet-control-attribution  {
+    display: none;
+}
+
 @media screen and (max-width: 700px) {
     footer .logotipo, #copy {
         width: 41%;
