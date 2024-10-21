@@ -191,3 +191,23 @@ footer .logotipo, #copy {
 .temaCor {
     color: rgb(0, 0, 0);
 }
+
+#consultaSalva {
+    background-color: white;
+    border-radius: 2vw;
+    width: 40vw;
+    height: 35vw;
+    margin: 2vw auto;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+} 
+#consultaSalva h1 {
+    margin: 0;
+    font-size: 2.4vw;
+    font-family: cursive;
+}
+#consultaSalva p {
+    font-size: 1.4vw;
+    font-family: cursive;
+}
