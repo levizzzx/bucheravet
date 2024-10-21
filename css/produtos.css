@@ -138,12 +138,21 @@ footer {
     position: absolute;
     white-space: nowrap;
     display: inline-block;
-    left: 100vw;
+    left: 0;
 }
-
 #textoPromo2 {
     position: absolute;
     white-space: nowrap;
     display: inline-block;
-    left: 100vw;
+    right: 0vw;
+}
+
+#carrossel {
+    position: absolute;
+    overflow: hidden;
+    height: 7vh;
+    background-color: rgb(182, 182, 182);
+    color: rgb(126, 5, 116);
+    border: none;
+    width: 175vw;
 }
