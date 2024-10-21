@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var form = document.getElementById('consultar');
     form.addEventListener('submit', function(event) {
-
+        
         var tipo = form.querySelector('select[id="tipo"]');
         var medico = form.querySelector('select[id="medico"]');
                                     
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             };
         };
+        location.reload();
     });
 });
 
@@ -176,3 +177,63 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //---------------------------------------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Função para salvar dados do formulário no localStorage
+    function salvarAgendamento() {
+        const agendamento = {
+            nomePet: document.getElementById('nomePet').value,
+            nomeDono: document.getElementById('nomeDono').value,
+            especialidade: document.getElementById('tipo').value,
+            medico: document.getElementById('medico').value,
+            dataConsulta: document.getElementById('dataConsulta').value,
+            horaConsulta: document.getElementById('horaConsulta').value
+        };
+
+        // Armazenar os dados no localStorage
+        localStorage.setItem('dadosAgendamento', JSON.stringify(agendamento));
+        alert("Agendamento salvo com sucesso!");
+    }
+
+    // Função para carregar os dados do localStorage e preencher as informações
+    function carregarAgendamento() {
+        const agendamentoSalvo = localStorage.getItem('dadosAgendamento');
+        if (agendamentoSalvo) {
+            const agendamento = JSON.parse(agendamentoSalvo);
+            const formAgendamento = document.getElementById('consultar')
+
+            formAgendamento.style.display = 'none'
+            document.getElementById('consultaSalva').style.display = 'flex';
+
+            document.getElementById('PetNome').innerText = "Nome do Pet: " + agendamento.nomePet;
+            document.getElementById('DonoNome').innerText = "Nome do Dono: " + agendamento.nomeDono;
+            document.getElementById('MedicoResponsavel').innerText = "Médico: " + agendamento.medico;
+            document.getElementById('ConsultaData').innerText = "Data da Consulta: " + agendamento.dataConsulta;
+            document.getElementById('ConsultaHora').innerText = "Horário da Consulta: " + agendamento.horaConsulta;
+        }
+    }
+
+    // Função para excluir dados do localStorage e recarregar a página
+    function excluirAgendamento() {
+        localStorage.removeItem('dadosAgendamento'); // Remover os dados salvos
+        alert("Agendamento excluído com sucesso!");
+        location.reload(); // Recarrega a página após a exclusão
+    }
+
+    // Carregar os dados salvos quando a página for carregada
+    carregarAgendamento();
+
+    // Adicionar o evento de submit ao formulário para salvar os dados
+    document.getElementById('consultar').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar o envio real do formulário
+        salvarAgendamento();
+    });
+
+    // Adicionar evento ao botão "Excluir Agendamento"
+    document.getElementById('excluirAgendamento').addEventListener('click', function() {
+        excluirAgendamento(); // Chama a função de exclusão quando o botão é clicado
+    });
+});
+
+document.getElementById('consultaSalva').style.display = 'none';
+
