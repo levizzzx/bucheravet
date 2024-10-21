@@ -39,12 +39,12 @@
             <form id="consultar">
 
                 <fieldset>
-
+            
                     <h3>Agende uma consulta!</h3>
-
-                    <input type="text" placeholder="Insira o nome do pet" required>
-
-                    <input type="text" placeholder="Insira o nome do Dono" required>
+            
+                    <input type="text" id="nomePet" placeholder="Insira o nome do pet" required>
+        
+                    <input type="text" id="nomeDono" placeholder="Insira o nome do Dono" required>
                     
                     <div id="tipos">
 
@@ -63,17 +63,17 @@
                             <option value="5">Comportamental</option>
 
                         </select>
-                        
-                    </div>
 
+                    </div>
+            
                     <div id="medicos">
 
-                        <select form="consultar" name="medicos" required id='medico'>
+                        <select form="consultar" name="medicos" required id="medico">
 
                             <option value="0" selected disabled>Médico Responsável</option>
 
                             <option value="1">Qualquer Médico</option>
-                            
+
                             <option value="2">Dr. Caio Yudi Mine Hada </option>
 
                             <option value="3">Dr. Levi Rodrigues</option>
@@ -87,19 +87,32 @@
                         </select>
 
                     </div>
-
+        
                     <input type="date" id="dataConsulta" required>
 
-                    <input type="time" id="hora" name="hora" min="07:30" max="19:30" required />
-
+                    <input type="time" id="horaConsulta" name="hora" min="07:30" max="19:30" required />
+            
                     <button type="submit">Agendar</button>
-                            
+
+
                 </fieldset>
 
-            </form>
+            </form>        
+            
 
         </div>
 
+        <div id="consultaSalva">
+            <h1>Dados da Consulta Agendada:</h1>
+            <p id="PetNome"></p>
+            <p id="DonoNome"></p>
+            <p id="MedicoResponsavel"></p>
+            <p id="ConsultaData"></p>
+            <p id="ConsultaHora"></p>
+            <button type="button" id="excluirAgendamento">Excluir Agendamento</button>
+
+        </div>
+        
         <footer>
 
             <div id="rodape">
