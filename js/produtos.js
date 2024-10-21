@@ -4,48 +4,48 @@
 
 const produtos = [
 
-    { name: "Ração 1", description: "Ração legal" },
+    { nome: "Ração 1", desc: "Ração legal" },
 
-    { name: "Acessório 1", description: "Acessório legal" },
+    { nome: "Acessório 1", desc: "Acessório legal" },
 
-    { name: "Brinquedo 1", description: "Brinquedo legal" },
+    { nome: "Brinquedo 1", desc: "Brinquedo legal" },
 
-    { name: "Petisco 1", description: "Petisco legal" },
+    { nome: "Petisco 1", desc: "Petisco legal" },
 
-    { name: "Shampoo 1", description: "Shampoo legal" },
+    { nome: "Shampoo 1", desc: "Shampoo legal" },
 
-    { name: "Ração 2", description: "Ração divertida" },
+    { nome: "Ração 2", desc: "Ração divertida" },
 
-    { name: "Acessório 2", description: "Acessório divertido" },
+    { nome: "Acessório 2", desc: "Acessório divertido" },
 
-    { name: "Brinquedo 2", description: "Brinquedo divertido" },
+    { nome: "Brinquedo 2", desc: "Brinquedo divertido" },
 
-    { name: "Petisco 2", description: "Petisco divertido" },
+    { nome: "Petisco 2", desc: "Petisco divertido" },
 
-    { name: "Shampoo 2", description: "Shampoo divertido" }
-
+    { nome: "Shampoo 2", desc: "Shampoo divertido" }
 ];
 
 document.getElementById('buscaForm').addEventListener('submit', function(event) {
 
     event.preventDefault();
 
-    const query = document.getElementById('buscaInput').value.toLowerCase();
+    const pesquisa = document.getElementById('buscaInput').value.toLowerCase();
 
     const resultados = produtos.filter(produto => 
 
-        removerAcentos(produto.name.toLowerCase()).includes(query) ||
+        removerAcentos(produto.nome.toLowerCase()).includes(pesquisa) ||
         
-        removerAcentos(produto.description.toLowerCase()).includes(query)
-
+        removerAcentos(produto.desc.toLowerCase()).includes(pesquisa)
     );
+
     mostrarResultados(resultados);
-    
 });
 
 function removerAcentos(texto) {
+
     return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-}
+
+};
 
 function mostrarResultados(resultados) {
 
@@ -57,7 +57,7 @@ function mostrarResultados(resultados) {
 
         const nomeProduto = removerAcentos(itensProdutos[i].getElementsByTagName('h3')[0].innerText.toLowerCase());
 
-        if (resultados.some(produto => removerAcentos(produto.name.toLowerCase()) === nomeProduto)) {
+        if (resultados.some(produto => removerAcentos(produto.nome.toLowerCase()) === nomeProduto)) {
 
             itensProdutos[i].style.display = 'block';
 
@@ -80,38 +80,45 @@ function trocarTema() {
     tema.classList.toggle('fa-rotate-180');
 
     const logo1 = document.getElementById('logo1');
+
     const logo2 = document.getElementById('logo2');
 
     var arquivo = estilo.getAttribute('href');
 
     if (arquivo === 'css/produtos.css') {
+
         estilo.setAttribute('href', 'css/produtosEscuro.css');
+
         logo1.setAttribute('src', "../imagens/logotipodark.png");
+
         logo2.setAttribute('src', "../imagens/logotipodark.png");
+
         document.cookie = 'tema=' + 'escuro';
+
     } else {
+
         estilo.setAttribute('href', 'css/produtos.css');
+
         logo1.setAttribute('src', "../imagens/logotipo.png");
+
         logo2.setAttribute('src', "../imagens/logotipo.png");
+
         document.cookie = 'tema=' + 'claro';
+
     };
 };
-
-
 
 /* Código para checar o tema atual e definir o valor do cookie, o "estilo" como o tema da página */
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    function getCookie(name) {
+    function getCookie(nome) {
 
-        var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+        var match = document.cookie.match(new RegExp(nome + '=([^;]+)'));
 
         return match ? decodeURIComponent(match[1]) : '';
         
     };
-
-
     
     valorTema = getCookie('tema');
 
@@ -131,8 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         logo2.setAttribute('src', "../imagens/logotipo.png");
 
-    };
-    
+    };   
 });
 
 //---------------------------------------------------------------------------------------------------------------
@@ -152,8 +158,6 @@ async function getText(file) {
     document.getElementById("textoPromo1").innerHTML = myText;
 
 };
-
-
 
 getText2("promo2.txt");
 
@@ -175,13 +179,15 @@ async function getText2(file) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    var promo1 = document.getElementById("textoPromo1");  
+    var carrossel = document.getElementById("carrossel");  
 
     var posicaoInicial = 100;
-    var posicaoFinal = -49;
+
+    var posicaoFinal = -175;
+
     var posicaoAtual = posicaoInicial;
 
-    function carrossel() {
+    function girarCarrossel() {
 
         if (posicaoAtual >= posicaoFinal) {
 
@@ -193,40 +199,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         };
 
-        promo1.style.left = posicaoAtual + 'vw';
-
+        carrossel.style.left = posicaoAtual + 'vw';
     };
+    setInterval(girarCarrossel, 10);
 
-    setInterval(carrossel, 10);
-
-
-
-    function iniciarCarrossel2() {
-        var promo2 = document.getElementById("textoPromo2");  
-
-        var posicaoInicial2 = 100;
-        var posicaoFinal2 = -49;
-        var posicaoAtual2 = posicaoInicial2;
-
-        function carrossel2() {
-
-            if (posicaoAtual2 >= posicaoFinal2) {
-
-                posicaoAtual2 = posicaoAtual2 - 0.1;
-
-            } else {
-
-                posicaoAtual2 = posicaoInicial2;
-
-            }
-
-            promo2.style.left = posicaoAtual2 + 'vw';
-
-        };
-
-        setInterval(carrossel2, 10);
-    };
-    setTimeout(iniciarCarrossel2, 6000);
 });
 
 //---------------------------------------------------------------------------------------------------------------
