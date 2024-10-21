@@ -798,28 +798,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-/* Código para o login do google funcionar bontinho coisa linda */
+/* Código para fazer o login do Google funcionar */ 
 
-function EntrarGoogle(googleUser) {
+// função para quando o usuário clicar no login com o Google
+function EntrarGoogle(googleUser) { 
+    // pega informações básicas do usuário que fez login
     const profile = googleUser.getBasicProfile();
-    console.log(`ID: ${profile.getId()}`);
-    console.log(`Nome: ${profile.getName()}`);
-    console.log(`URL da Imagem: ${profile.getImageUrl()}`);
-    console.log(`E-mail: ${profile.getEmail()}`);
-    window.location.href = 'index.html';
+    
+    // armazena as informações do usuário no localStorage
+    localStorage.setItem('userId', profile.getId());
+    localStorage.setItem('userName', profile.getName());
+    localStorage.setItem('userImage', profile.getImageUrl());
+    localStorage.setItem('userEmail', profile.getEmail());
 }
 
+// função para quando a janela de login carregar
 function onLoad() {
+    // carrega a biblioteca do Google "oauth2"
     gapi.load('auth2', () => {
+        // ligando o ID que o Google Cloud dá ao login, para aparecer o nome do projeto na janela.
         gapi.auth2.init({
             client_id: '186114144070-8gr5bn1gon6fus9adnmb9h1daji9rbl0.apps.googleusercontent.com',
         });
     });
 }
 
+// função para adicionar evento de clique ao botão de login do Google
 document.getElementById('google-login').onclick = () => {
+    // obtém a configuração de autenticação do Google
     const auth2 = gapi.auth2.getAuthInstance();
-    auth2.signIn().then(EntrarGoogle);
+    
+    // inicia o processo de login
+    auth2.signIn().then(googleUser => {
+        // chama a função EntrarGoogle com o usuário autenticado
+        EntrarGoogle(googleUser);
+        
+        // redireciona para a página 'index.html' após o login
+        window.location.href = 'index.html';
+    });
 };
+
+
 
 //---------------------------------------------------------------------------------------------------------------
