@@ -259,6 +259,33 @@ atualizar();
 //---------------------------------------------------------------------------------------------------------------
 
 
+const valorX = ["Leve", "Tranquilo", "Ideal", "essencial"];
+const valorY = [150, 180, 370, 300, 0];
+const cores = ["red","pink","green","blue"];
+
+    const graplanos = new Chart("planosgrafico", {
+
+        type:"bar",
+        data: {
+            labels: valorX,
+            datasets: [{
+                backgroundColor: cores,
+                data: valorY
+            }]
+        },
+        options: {
+            legend: {display: false,},
+            title: {
+                display: true,
+                text: "O gráfico mostra a quantidade de assinaturas de cada plano a cada 1000 pessoas.",
+                fontsize: 50
+            }
+
+        }
+
+    });
+
+//----------------------------------------------------------------------------------------------------------------------
 
 /* Código para mostrar ou esconder "dogBeneficios" quando estiver parcialmente visível */
 
@@ -479,3 +506,4 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     /* Defini um Popup para exibir o nome da nossa clínica no marcador quando o usuário clicar*/
 
 //---------------------------------------------------------------------------------------------------------------
+
