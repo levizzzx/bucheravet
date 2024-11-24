@@ -442,6 +442,11 @@ aside a {
     text-decoration: none;
     margin: 0;
 }
+#planosgrafico {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11vw;
+}
 #sobre {
     margin-top: 17vw;
     height: 55vw;
