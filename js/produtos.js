@@ -3,38 +3,24 @@
 /* Código para mostrar produtos relacionados à busca */
 
 const produtos = [
-
     { nome: "Ração 1", desc: "Ração legal" },
-
     { nome: "Acessório 1", desc: "Acessório legal" },
-
     { nome: "Brinquedo 1", desc: "Brinquedo legal" },
-
     { nome: "Petisco 1", desc: "Petisco legal" },
-
     { nome: "Shampoo 1", desc: "Shampoo legal" },
-
     { nome: "Ração 2", desc: "Ração divertida" },
-
     { nome: "Acessório 2", desc: "Acessório divertido" },
-
     { nome: "Brinquedo 2", desc: "Brinquedo divertido" },
-
     { nome: "Petisco 2", desc: "Petisco divertido" },
-
     { nome: "Shampoo 2", desc: "Shampoo divertido" }
 ];
 
 document.getElementById('buscaForm').addEventListener('submit', function(event) {
-
     event.preventDefault();
-
-    const pesquisa = document.getElementById('buscaInput').value.toLowerCase();
+    const pesquisa = removerAcentos(document.getElementById('buscaInput').value.toLowerCase());
 
     const resultados = produtos.filter(produto => 
-
         removerAcentos(produto.nome.toLowerCase()).includes(pesquisa) ||
-        
         removerAcentos(produto.desc.toLowerCase()).includes(pesquisa)
     );
 
@@ -42,32 +28,49 @@ document.getElementById('buscaForm').addEventListener('submit', function(event) 
 });
 
 function removerAcentos(texto) {
-
     return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
-};
+}
 
 function mostrarResultados(resultados) {
-
     const listaProdutos = document.getElementById('listaProdutos');
+    listaProdutos.innerHTML = '';
 
-    const itensProdutos = listaProdutos.getElementsByClassName('produtos');
+    resultados.forEach(produto => {
+        const itemProduto = document.createElement('li');
+        itemProduto.className = 'produtos';
+        itemProduto.innerHTML = `<h3>${produto.nome}</h3><p>${produto.desc}</p>`;
+        listaProdutos.appendChild(itemProduto);
+    });
 
-    for (var i = 0; i < itensProdutos.length; i++) {
+    const tituloProdutos = document.getElementById('tituloProdutos');
+    if (resultados.length > 0) {
+        tituloProdutos.textContent = 'Resultados para "' + document.getElementById('buscaInput').value + '":';
+    } else {
+        tituloProdutos.textContent = 'Nenhum resultado encontrado';
+    }
 
-        const nomeProduto = removerAcentos(itensProdutos[i].getElementsByTagName('h3')[0].innerText.toLowerCase());
+    const detalhes = document.getElementById('detalhes');
+    if (detalhes) {
+        detalhes.style.display = 'none';
+    }
+}
 
-        if (resultados.some(produto => removerAcentos(produto.nome.toLowerCase()) === nomeProduto)) {
+//---------------------------------------------------------------------------------------------------------------
 
-            itensProdutos[i].style.display = 'block';
 
-        } else {
 
-            itensProdutos[i].style.display = 'none';
+/* Código para ajustar o input de busca ao ser selecionado */
 
-        };
-    };
-};
+document.getElementById('buscaInput').addEventListener('focus', function() {
+    this.setAttribute('data-placeholder', this.getAttribute('placeholder'));
+    this.setAttribute('placeholder', '');
+});
+
+document.getElementById('buscaInput').addEventListener('blur', function() {
+    if (this.value === '') {
+        this.setAttribute('placeholder', 'Pesquisar produtos...');
+    }
+});
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -203,6 +206,81 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     setInterval(girarCarrossel, 10);
 
+});
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+
+/* Código para filtrar categorias */
+
+function categorias() {
+
+    var displayCategorias = document.getElementById('categorias').style.display;
+
+    if (displayCategorias === 'block') {
+
+        displayCategorias = 'none';
+
+    } else {
+
+        displayCategorias = 'block';
+
+    }
+    document.getElementById('categorias').style.display = displayCategorias;
+
+
+
+    document.getElementById('filtroBusca').classList.toggle('corFiltro2');
+
+    document.getElementById('filtroBusca').classList.toggle('fa-xmark');
+    document.getElementById('filtroBusca').classList.toggle('fa-list');
+}
+
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+
+/* Código para criar o gráfico de produtos */
+
+const xArray = ["Ração 1","Acessório 1","Brinquedo 1","Petisco 1","Shampoo 1","Ração 2","Acessório 2","Brinquedo 2","Petisco 2","Shampoo 2"];
+const yArray = [340, 270, 150, 220, 180, 410, 290, 190, 240, 210];
+
+const data = [{
+  labels: xArray,
+  values: yArray,
+  type: "pie"
+}];
+
+const layout = {title:"Produtos Mais Vendidos (2024)"};
+
+Plotly.newPlot("grafico", data, layout);
+
+//---------------------------------------------------------------------------------------------------------------
+
+
+
+/* Código para mostrar e esconder o gráfico de produtos */
+
+function mostrarGrafico(event) {
+    event.stopPropagation();
+    var grafico = document.getElementById('grafico');
+    if (grafico.style.opacity === '1') {
+        grafico.style.opacity = '0';
+        setTimeout(() => { grafico.classList.remove('mostrar'); }, 500);
+    } else {
+        grafico.classList.add('mostrar');
+        setTimeout(() => { grafico.style.opacity = '1'; }, 10);
+    }
+}
+
+document.addEventListener('click', function(event) {
+    var grafico = document.getElementById('grafico');
+    if (!grafico.contains(event.target)) {
+        grafico.style.opacity = '0';
+        setTimeout(() => { grafico.classList.remove('mostrar'); }, 500);
+    }
 });
 
 //---------------------------------------------------------------------------------------------------------------
