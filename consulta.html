@@ -14,6 +14,41 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+        <script type="text/javascript">google.charts.load("current", {packages:["corechart", "bar"]});
+            google.charts.setOnLoadCallback(drawChart);
+            
+            function drawChart() {
+                const informacoes = consultas.reverse();
+                var data = google.visualization.arrayToDataTable([
+                    ['DataConsulta', 'Peso(KG)'],
+                    [informacoes[0].data, informacoes[0].peso],  
+                    [informacoes[1].data, informacoes[1].peso],
+                    [informacoes[2].data, informacoes[2].peso], 
+                    [informacoes[3].data, informacoes[3].peso],
+                    [informacoes[4].data, informacoes[4].peso],  
+                ]);
+    
+                var options = {
+                    title: 'Peso do seu Pet ao Longo das Consultas',
+                    chartArea: {width: '60%'},
+                    hAxis: {
+                        title: 'Peso em Kg',
+                        minValue: 0,
+                        maxValue: 30
+                    },
+                    vAxis: {
+                        title: 'Data da Consulta'
+                    },
+                    
+                    colors: ['#4CAF50']
+                };
+    
+                var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
     </head>
 
     <body>
@@ -45,6 +80,8 @@
                     <input type="text" id="nomePet" placeholder="Insira o nome do pet" required>
         
                     <input type="text" id="nomeDono" placeholder="Insira o nome do Dono" required>
+
+                    <input type="number" id="pesoPet" placeholder="Insira o peso do Pet" required>
                     
                     <div id="tipos">
 
@@ -92,7 +129,7 @@
 
                     <input type="time" id="horaConsulta" name="hora" min="07:30" max="19:30" required />
             
-                    <button type="submit">Agendar</button>
+                    <button type="submit" id="agendar">Agendar</button>
 
 
                 </fieldset>
@@ -101,16 +138,13 @@
             
 
         </div>
-
-        <div id="consultaSalva">
-            <h1>Dados da Consulta Agendada:</h1>
-            <p id="PetNome"></p>
-            <p id="DonoNome"></p>
-            <p id="MedicoResponsavel"></p>
-            <p id="ConsultaData"></p>
-            <p id="ConsultaHora"></p>
-            <button type="button" id="excluirAgendamento">Excluir Agendamento</button>
-
+        
+        <div id="consultaSalva" style="display: block;">
+            <div id="consultas">
+                
+            </div>
+            <div id="chart_div" style="width: 40vw; height: 25vw;"></div>
+            <p id="marcarmais" onclick="marcarmais()">Marcar mais consultas</p>
         </div>
         
         <footer>
