@@ -16,39 +16,50 @@
 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
-        <script type="text/javascript">google.charts.load("current", {packages:["corechart", "bar"]});
+        <script type="text/javascript">
+            // Carrega a biblioteca de gráficos do Google Charts
+            google.charts.load("current", {packages:["corechart", "bar"]});
+        
+            // Define a função drawChart como callback para ser executada após a biblioteca carregar
             google.charts.setOnLoadCallback(drawChart);
             
             function drawChart() {
+                // Obtém os dados das consultas (inverte a ordem para colocar os mais recentes primeiro)
                 const informacoes = consultas.reverse();
+        
+                // Cria a tabela de dados para o gráfico
                 var data = google.visualization.arrayToDataTable([
-                    ['DataConsulta', 'Peso(KG)'],
-                    [informacoes[0].data, informacoes[0].peso],  
-                    [informacoes[1].data, informacoes[1].peso],
-                    [informacoes[2].data, informacoes[2].peso], 
-                    [informacoes[3].data, informacoes[3].peso],
-                    [informacoes[4].data, informacoes[4].peso],  
+                    ['DataConsulta', 'Peso(KG)'], // Cabeçalhos das colunas
+                    [informacoes[0].data, informacoes[0].peso],  // Primeira consulta (data e peso)
+                    [informacoes[1].data, informacoes[1].peso],  // Segunda consulta
+                    [informacoes[2].data, informacoes[2].peso],  // Terceira consulta
+                    [informacoes[3].data, informacoes[3].peso],  // Quarta consulta
+                    [informacoes[4].data, informacoes[4].peso],  // Quinta consulta
                 ]);
-    
+        
+                // Configurações do gráfico
                 var options = {
-                    title: 'Peso do seu Pet ao Longo das Consultas',
-                    chartArea: {width: '60%'},
-                    hAxis: {
-                        title: 'Peso em Kg',
-                        minValue: 0,
-                        maxValue: 30
+                    title: 'Peso do seu Pet ao Longo das Consultas', // Título do gráfico
+                    chartArea: {width: '60%'}, // Define a largura da área de desenho do gráfico
+                    hAxis: { // Configurações do eixo horizontal (hAxis)
+                        title: 'Peso em Kg', // Título do eixo
+                        minValue: 0, // Valor mínimo do eixo
+                        maxValue: 30 // Valor máximo do eixo
                     },
-                    vAxis: {
-                        title: 'Data da Consulta'
+                    vAxis: { // Configurações do eixo vertical (vAxis)
+                        title: 'Data da Consulta' // Título do eixo
                     },
-                    
-                    colors: ['#4CAF50']
+                    colors: ['#4CAF50'] // Define a cor da barra
                 };
-    
+        
+                // Cria um gráfico de barras no elemento com o ID 'chart_div'
                 var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        
+                // Desenha o gráfico usando os dados e as opções configuradas
                 chart.draw(data, options);
             }
         </script>
+        
     </head>
 
     <body>
