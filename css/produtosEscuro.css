@@ -51,9 +51,7 @@ header {
 }
 
 body {
-    background-size: 60%;
-    margin: 0;
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(54, 54, 54);
 }
 
 footer {
@@ -63,12 +61,15 @@ footer {
     padding: 2vw 0 2vw 0;
     bottom: 0%;
 }
-
 footer .logotipo, #copy {
     width: 17vw;
     margin: 0;
 }
-
+#copy {
+    color: rgb(99, 99, 99);
+    position: relative;
+    margin-left: 3vw;
+}
 #rodape {
     font-size: 1.3vw;
     width: 100%;
@@ -83,16 +84,6 @@ header .logotipo, .logotipo img {
     height: 100%;
 }
 
-#copy {
-    color: rgb(99, 99, 99);
-    position: relative;
-    margin-left: 3vw;
-}
-
-footer {
-    margin-top: 3vw;
-}
-
 #tema {
     position: absolute;
     top: 36%;
@@ -105,14 +96,21 @@ footer {
 }
 
 #buscaInput {
-    background-color: black;
-    color: white;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 1vw;
+    width: 50vw;
+    height: 7vh;
+    padding-left: 2vw;
+    padding-top: 0.4vw;
+    font-size: 1.2vw;
+    translate: 3.2vw -1.6vh;
 }
 
 #buscaInput::placeholder {
-    color: white;
+    color: #ffffff;
+    font-size: 1.2vw;
 }
 
 #botaoForm {
@@ -122,14 +120,32 @@ footer {
     border-radius: 1vw;
     padding: 1vw;
     cursor: pointer;
+    translate: -2.2vw -2.1vh;
+}
+
+#filtroBusca {
+    scale: 1.5;
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+    z-index: 2;
+    position: absolute;
+}
+
+.corFiltro {
+    background-color: rgb(12, 240, 12);
+    color: rgb(0, 0, 0);
+}
+
+#filtroBusca:hover {
+    cursor: pointer;
 }
 
 #promocoes {
     position: relative;
     overflow: hidden;
     height: 7vh;
-    background-color: rgb(78, 78, 78);
-    color: rgb(255, 255, 255);
+    background-color: rgb(182, 182, 182);
+    color: rgb(53, 53, 53);
     border: none;
     padding: 1vw;
 }
@@ -151,8 +167,125 @@ footer {
     position: absolute;
     overflow: hidden;
     height: 7vh;
-    background-color: rgb(78, 78, 78);
-    color: rgb(255, 255, 255);
+    background-color: rgb(182, 182, 182);
+    color: rgb(68, 68, 68);
+    font-weight: 900;
     border: none;
     width: 175vw;
+}
+
+#listaProdutos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.produtos {
+    background: #555555;
+    color:  #e0e0e0;
+    border: 1px solid #e0e0e0;
+    border-radius: 1vw;
+    margin: 10px;
+    padding: 15px;
+    flex: 1 1 calc(25% - 20px); /* Ajusta a largura com espaçamento */
+    box-sizing: border-box;
+}
+
+.produtos:hover {
+    cursor: pointer;
+}
+
+.produtos h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+    .produtos {
+        flex: 1 1 calc(50% - 20px); /* Ajusta a largura com espaçamento para telas menores */
+    }
+}
+
+@media (max-width: 500px) {
+    .produtos {
+        flex: 1 1 calc(100% - 20px); /* Ajusta a largura com espaçamento para telas muito pequenas */
+    }
+}
+
+#conteudo {
+    margin: 2vw 5vw 4vw 5vw;
+}
+
+#categorias {
+    translate: -0.8vw -1.4vh;
+    width: 175px;
+    position: absolute;
+    background-color: rgb(235, 235, 235);
+    border-radius: 1vw;
+    display: none;
+    z-index: 1;
+}
+
+#categorias ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 8vh;
+    margin-left: 12%;
+}
+
+#categorias li {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    width: 80%;
+}
+
+#categorias li:hover {
+    cursor: pointer;
+}
+
+#categorias h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.corFiltro2 {
+    color: rgb(255, 255, 255);
+    background-color: rgb(95, 52, 173);
+    width: 1.1vw;
+    padding-left: 1.5vw;
+}
+
+#tituloProdutos {
+    display: inline-block;
+    color: white;
+}
+
+#detalhes {
+    color: rgb(255, 255, 255);
+    scale: 1.2;
+    translate: 0.5vw -0.1vw;
+}
+
+#detalhes:hover {
+    cursor: pointer;
+}
+
+#grafico {
+    position: absolute;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+    translate: 12.7vw -3.6vh;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+#grafico.mostrar {
+    opacity: 1;
+    pointer-events: auto;
 }
