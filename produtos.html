@@ -2,6 +2,8 @@
 
 <html lang="PT-BR">
 
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <head>
 
         <meta charset="UTF-8" />
@@ -53,98 +55,168 @@
                 </div>
 
             </div>
+            
+            <div id="conteudo">
 
-            <form id="buscaForm">
+                <form id="buscaForm">
 
-                <input type="text" id="buscaInput" placeholder="Pesquisar produtos...">
+                    <div id="filtro">
+                        
+                        <i id="filtroBusca" onclick="categorias()" class="fa-solid fa-list corFiltro"></i>
+                        
+                        <div id="categorias">
 
-                <button id="botaoForm" type="submit">Buscar</button>
+                            <ul style="list-style: none;">
 
-            </form>
+                                <li>
 
-            <ul id="listaProdutos" style="list-style: none;">
+                                    <h3>Cachorro</h3>
 
-                <li class="produtos">
+                                </li>
 
-                    <h3>Ração 1</h3>
+                                <li>
 
-                    <p>Ração legal</p>
+                                    <h3>Gato</h3>
 
-                </li>
+                                </li>
 
-                <li class="produtos">
+                                <li>
 
-                    <h3>Acessório 1</h3>
+                                    <h3>Ração</h3>
 
-                    <p>Acessório legal</p>
+                                </li>
 
-                </li>
+                                <li>
 
-                <li class="produtos">
+                                    <h3>Acessório</h3>
 
-                    <h3>Brinquedo 1</h3>
+                                </li>
 
-                    <p>Brinquedo legal</p>
+                                <li>
 
-                </li>
+                                    <h3>Brinquedo</h3>
 
-                <li class="produtos">
+                                </li>
 
-                    <h3>Petisco 1</h3>
+                                <li>
 
-                    <p>Petisco legal</p>
+                                    <h3>Petisco</h3>
 
-                </li>
+                                </li>
 
-                <li class="produtos">
+                                <li>
 
-                    <h3>Shampoo 1</h3>
+                                    <h3>Shampoo</h3>
 
-                    <p>Shampoo legal</p>
+                                </li>
 
-                </li>
+                            </ul>
 
-                <li class="produtos">
+                        </div>
 
-                    <h3>Ração 2</h3>
+                    </div>
 
-                    <p>Ração divertida</p>
+                    
 
-                </li>
+                    <input type="text" id="buscaInput" placeholder="Pesquisar produtos...">
 
-                <li class="produtos">
+                    <button id="botaoForm" type="submit">Buscar</button>
 
-                    <h3>Acessório 2</h3>
+                </form>
 
-                    <p>Acessório divertido</p>
+                <br> <br>
 
-                </li>
+                <h2 id="tituloProdutos">  Mais Vendidos </h2>
 
-                <li class="produtos">
+                <i id="detalhes" onclick="mostrarGrafico(event)" class="fa-solid fa-circle-info"></i>
 
-                    <h3>Brinquedo 2</h3>
+                <div  id="grafico" style="width:100%;max-width:500px;height:100%;max-height:400px;"></div>
 
-                    <p>Brinquedo divertido</p>
+                <ul id="listaProdutos" style="list-style: none;">
 
-                </li>
+                    <li class="produtos">
 
-                <li class="produtos">
+                        <h3>Ração 1</h3>
 
-                    <h3>Petisco 2</h3>
+                        <p>Ração legal</p>
 
-                    <p>Petisco divertido</p>
+                    </li>
 
-                </li>
+                    <li class="produtos">
 
-                <li class="produtos">
+                        <h3>Acessório 1</h3>
 
-                    <h3>Shampoo 2</h3>
+                        <p>Acessório legal</p>
 
-                    <p>Shampoo divertido</p>
+                    </li>
 
-                </li>
+                    <li class="produtos">
 
-            </ul>
+                        <h3>Brinquedo 1</h3>
+
+                        <p>Brinquedo legal</p>
+
+                    </li>
+
+                    <li class="produtos">
+
+                        <h3>Petisco 1</h3>
+
+                        <p>Petisco legal</p>
+
+                    </li>
+
+                    <li class="produtos">
+
+                        <h3>Shampoo 1</h3>
+
+                        <p>Shampoo legal</p>
+
+                    </li>
+
+                    <li class="produtos">
+
+                        <h3>Ração 2</h3>
+
+                        <p>Ração divertida</p>
+
+                    </li>
+
+                    <li class="produtos">
+
+                        <h3>Acessório 2</h3>
+
+                        <p>Acessório divertido</p>
+
+                    </li>
+
+                    <li class="produtos">
+
+                        <h3>Brinquedo 2</h3>
+
+                        <p>Brinquedo divertido</p>
+
+                    </li>
+
+                    <li class="produtos">
+
+                        <h3>Petisco 2</h3>
+
+                        <p>Petisco divertido</p>
+
+                    </li>
+
+                    <li class="produtos">
+
+                        <h3>Shampoo 2</h3>
+
+                        <p>Shampoo divertido</p>
+
+                    </li>
+
+                </ul>
+
+            </div>
 
         </main>
 
