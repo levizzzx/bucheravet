@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         };
         location.reload();
+        adicionarConsulta()
     });
 });
 
@@ -176,64 +177,111 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-//---------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
+document.getElementById('agendar').addEventListener('click', function() {
+    document.getElementById('consultaSalva').style.display = 'block';
+    document.getElementsByClassName('consulta').style.display = 'none';
+})
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Função para salvar dados do formulário no localStorage
-    function salvarAgendamento() {
-        const agendamento = {
-            nomePet: document.getElementById('nomePet').value,
-            nomeDono: document.getElementById('nomeDono').value,
-            especialidade: document.getElementById('tipo').value,
-            medico: document.getElementById('medico').value,
-            dataConsulta: document.getElementById('dataConsulta').value,
-            horaConsulta: document.getElementById('horaConsulta').value
+document.getElementById('consultaSalva').style.display = 'block';
+
+function marcarmais() {
+    document.getElementById('consultaSalva').style.display = 'none';
+};
+
+if (!localStorage.getItem('consultas')) {
+    localStorage.setItem('consultas', JSON.stringify([]));
+    document.getElementById('consultaSalva').style.display = 'none';
+}
+
+function adicionarConsulta() {
+    const dataConsulta = document.getElementById('dataConsulta').value;
+    const pesoPet = parseFloat(document.getElementById('pesoPet').value);
+    const nomeMedico = document.getElementById('medico').value;
+
+    let consultas = JSON.parse(localStorage.getItem('consultas')) || [];
+
+    consultas.push({ data: dataConsulta, peso: pesoPet, medico: nomeMedico });
+
+    consultas.sort((a, b) => new Date(a.data) - new Date(b.data));
+
+    localStorage.setItem('consultas', JSON.stringify(consultas));
+
+    atualizarConsultas();
+}
+
+function atualizarConsultas() {
+    const consultas = JSON.parse(localStorage.getItem('consultas'));
+    const consul = document.getElementById('consultas');
+    consul.innerHTML = '';
+
+
+    consultas.sort((a, b) => new Date(a.data) - new Date(b.data)); 
+
+    consultas.forEach((consulta, index) => {
+        const divConsulta = document.createElement('div');
+        divConsulta.id = 'consulta';
+
+        const hConsulta = document.createElement('h2');
+        hConsulta.innerHTML = `${consulta.data} - ${consulta.medico}`;
+        
+        const reagendar = document.createElement('p');
+        const cancelar = document.createElement('p');
+        cancelar.id = 'cancelar';
+        reagendar.id = 'reagendar';
+        
+        const reagendaric = document.createElement('i');
+        reagendaric.classList.add('fas', 'fa-calendar', 'icon', 'icon-calendar');
+        
+        const cancelaric = document.createElement('i');
+        cancelaric.classList.add('fas', 'fa-times', 'icon', 'icon-remove');
+        cancelaric.innerHTML = '  - cancelar';
+        reagendaric.innerHTML = ' - reagendar';
+
+        reagendar.appendChild(reagendaric);
+        cancelar.appendChild(cancelaric);
+        
+        divConsulta.appendChild(hConsulta);
+        divConsulta.appendChild(cancelar);
+        divConsulta.appendChild(reagendar);
+
+        consul.appendChild(divConsulta);
+
+        cancelar.onclick = function() {
+            removerConsulta(index); 
         };
-
-        // Armazenar os dados no localStorage
-        localStorage.setItem('dadosAgendamento', JSON.stringify(agendamento));
-        alert("Agendamento salvo com sucesso!");
-    }
-
-    // Função para carregar os dados do localStorage e preencher as informações
-    function carregarAgendamento() {
-        const agendamentoSalvo = localStorage.getItem('dadosAgendamento');
-        if (agendamentoSalvo) {
-            const agendamento = JSON.parse(agendamentoSalvo);
-            const formAgendamento = document.getElementById('consultar')
-
-            formAgendamento.style.display = 'none'
-            document.getElementById('consultaSalva').style.display = 'flex';
-
-            document.getElementById('PetNome').innerText = "Nome do Pet: " + agendamento.nomePet;
-            document.getElementById('DonoNome').innerText = "Nome do Dono: " + agendamento.nomeDono;
-            document.getElementById('MedicoResponsavel').innerText = "Médico: " + agendamento.medico;
-            document.getElementById('ConsultaData').innerText = "Data da Consulta: " + agendamento.dataConsulta;
-            document.getElementById('ConsultaHora').innerText = "Horário da Consulta: " + agendamento.horaConsulta;
-        }
-    }
-
-    // Função para excluir dados do localStorage e recarregar a página
-    function excluirAgendamento() {
-        localStorage.removeItem('dadosAgendamento'); // Remover os dados salvos
-        alert("Agendamento excluído com sucesso!");
-        location.reload(); // Recarrega a página após a exclusão
-    }
-
-    // Carregar os dados salvos quando a página for carregada
-    carregarAgendamento();
-
-    // Adicionar o evento de submit ao formulário para salvar os dados
-    document.getElementById('consultar').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar o envio real do formulário
-        salvarAgendamento();
     });
+}
 
-    // Adicionar evento ao botão "Excluir Agendamento"
-    document.getElementById('excluirAgendamento').addEventListener('click', function() {
-        excluirAgendamento(); // Chama a função de exclusão quando o botão é clicado
-    });
+function removerConsulta(indice) {
+    let consultas = JSON.parse(localStorage.getItem('consultas'));
+
+    consultas.splice(indice, 1);
+
+    localStorage.setItem('consultas', JSON.stringify(consultas));
+
+    atualizarConsultas();
+    alert('Consulta removida com sucesso!');
+}
+
+atualizarConsultas();
+
+function removerConsulta(indice) {
+    let consultas = JSON.parse(localStorage.getItem('consultas'));
+
+    consultas.splice(indice, 1);
+
+    localStorage.setItem('consultas', JSON.stringify(consultas));
+
+    atualizarConsultas();
+    alert('Consulta removida com sucesso!');
+    location.reload();
+}
+
+atualizarConsultas();
+
+let consultas = JSON.parse(localStorage.getItem('consultas')) || [];
+
+consultas.forEach(consulta => {
+    console.log(`Data: ${consulta.data}, Peso: ${consulta.peso} kg`);
 });
-
-document.getElementById('consultaSalva').style.display = 'none';
-
