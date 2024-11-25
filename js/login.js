@@ -841,3 +841,30 @@ document.getElementById('google-login').onclick = () => {
 
 
 //---------------------------------------------------------------------------------------------------------------
+
+/*Código do gráfico da quantidade de usuários logados e deslogados*/
+
+const xValues = ["Deslogados", "Logados"];
+const yValues = [67, 33];
+const barColors = [
+  "#b91d47",
+  "#00aba9"
+];
+
+    new Chart("gralogados", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "A cada 100 usuários que acessam o Buchera´s Vet"
+    }
+  }
+});
+//---------------------------------------------------------------------------------------------------------------
